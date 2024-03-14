@@ -7,16 +7,31 @@ class Solution {
         // val = 3
         // sample test case: [3,2,2,3] last_index = 1, i = 1
         // sample test case: [2,2,3,3] 
+        //[3,3] last index = 0, i = 0
 
         // int[] empty = new int[];
+        int numSwaps = 0;
+        int last_index = nums.length-1;
+        if(nums.length == 1 && nums[0] == val){ // Set the array to an empty array
+                return 0;
+            }
+        for(int i = 0; i < nums.length -1; i++){
 
-        int index = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[index] = nums[i];
-                index++;
+            if(nums[last_index] == val){
+                last_index--;
+            }
+            
+            if(nums[i] == val && i < last_index ){
+                int temp = nums[i];
+                nums[i] = nums[last_index];
+                nums[last_index] = temp;
+                last_index--; 
+                swap++;
+            }
+            if(swap > 2){
+                return 0;
             }
         }
-        return index;
+        return last_index + 1;
     }
 }
