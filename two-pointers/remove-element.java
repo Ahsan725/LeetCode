@@ -28,7 +28,7 @@ class Solution {
                 last_index--; 
                 swap++;
             }
-            if(swap > 2){
+            if(numSwaps > 2){
                 return 0;
             }
         }
