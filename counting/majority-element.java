@@ -6,14 +6,14 @@ class Solution {
         int candidate = 0;
 
         for (int i = 0; i < nums.length; i++){
-            if(count == 0){
+            if(count == 0){ //initialize a new candidate
                 candidate = nums[i];
             }
 
             if(candidate == nums[i]){
-                count++;
+                count++; //that means we saw the element again
             }else{
-                count--;
+                count--; //we saw a different element
             }
         }
         return candidate; 
