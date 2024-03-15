@@ -6,8 +6,9 @@ class Solution {
         int[] temp = new int[n]; // Correct array instantiation
         
         // Rotate the last k elements to the right
+        int startingIndexFromTheBack = n-k;
         for (int i = 0; i < k; i++) {
-            temp[i] = nums[n - k + i];
+            temp[i] = nums[startingIndexFromTheBack + i];
         }
         
         // Rotate the remaining elements
