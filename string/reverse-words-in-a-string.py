@@ -1,6 +1,6 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        words = s.split()#splits the words on space so we should have: the sky is blue
+        words = s.split() #splits the words on space so we should have: the sky is blue
 
         result = ""
 
