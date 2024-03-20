@@ -1,12 +1,7 @@
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
-        # import requests
-# import mysql.connector
-# import pandas as pd
 # a function that takes two numbers but these number can be pretty big could overflow -> add these two numbers
-# peeking under the hood, how would you go about it implementing such a functionality
-# integer value 
-
+# peeking under the hood, how would you go about it implementing such a functionality 
 #approach: 
         str1 = num1
         str2 = num2
@@ -43,6 +38,5 @@ class Solution:
             result = str(sum)+result
         if carry > 0:
             result = str(carry) + result
-        # prepend carryover
         
         return result
