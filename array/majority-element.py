@@ -10,7 +10,8 @@ class Solution:
         for i in range(len(nums)):
             if count == 0:
                 candidate = nums[i]
-                count +=1
+                count +=1 # if you want to remove this you will 
+                        #have to change elif to just if
             elif nums[i] == candidate:
                 count += 1
             else:
