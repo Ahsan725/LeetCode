@@ -33,7 +33,7 @@ In this tuple, characters differ across strings. Since they are not all the same
             return ""
 
         prefix = ""
-        for chars in zip(*strs):
+        for chars in zip(*strs): 
             if len(set(chars)) == 1:
                 prefix += chars[0]
             else:
