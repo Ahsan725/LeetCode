@@ -11,7 +11,7 @@ class Solution:
             # Push (freq, num) tuple into the heap
             heapq.heappush(min_heap, (freq, num))
             # If the size of the heap exceeds k, pop the smallest element
-            if len(min_heap) > k:
+            if len(min_heap) > k: # 5 items total k =2 
                 heapq.heappop(min_heap)
 
         # Extract the top k frequent elements from the heap
