@@ -1,5 +1,11 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        '''
+        This might be a better approach in an interview because it has less code and less chances to
+        mess up. However, two pointer technique is something that will come in handy in many situations
+        Sol 1 = O(n^3)
+        Sol 2 = O(n^2) + O(n log n) -> O(n^2)
+        '''
         # ans=set()
         # nums.sort()
         # n=len(nums)
