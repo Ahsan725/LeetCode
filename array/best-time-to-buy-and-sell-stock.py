@@ -12,8 +12,8 @@ class Solution:
             if min_price > price:
                 min_price = price
             
-            # Update max_profit if the profit obtained by selling at the current price
-            # (current price - min_price) is greater than the current max_profit
+# Update max_profit if the profit obtained by selling at the current price
+# (current price - min_price) is greater than the current max_profit
             if max_profit < price - min_price:
                 max_profit = price - min_price
         
