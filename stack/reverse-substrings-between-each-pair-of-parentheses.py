@@ -1,10 +1,9 @@
 class Solution:
     def reverseParentheses(self, s: str) -> str:
-        inputString = s
         stack = []
         result = ""
     
-        for char in inputString:
+        for char in s:
             if char == '(':
                 stack.append(result)
                 result = ""
