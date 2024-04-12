@@ -1,8 +1,21 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        anagrams = defaultdict(list)
+        def wordToKey(word): 
+            wordArray = [0] * 26
+            
+            for i in range(len(word)):
+                index = ord(word[i]) - ord('a')
+                wordArray[index] += 1
 
-        for word in strs:
-            sorted_word = ''.join(sorted(word))
-            anagrams[sorted_word].append(word)
-        return list(anagrams.values())
+            return ''.join(str(wordArray))
+
+        mapAnagram = {}
+    
+        for i in range(len(strs)):
+            anagramKey = wordToKey(strs[i])
+            if anagramKey in mapAnagram: 
+                mapAnagram[anagramKey].append(strs[i])
+            else:
+                mapAnagram[anagramKey] = [strs[i]]
+                
+        return list(mapAnagram.values())
