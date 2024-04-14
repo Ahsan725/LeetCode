@@ -1,5 +1,6 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #O(n) solution
         def wordToKey(word): 
             wordArray = [0] * 26
             
