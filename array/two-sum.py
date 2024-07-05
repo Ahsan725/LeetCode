@@ -1,12 +1,14 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_indices = {}
+        #approach: Cretaing a hash map. iterate over it. For each element find its complement
+        #if complmenet is found return tnose two indices
 
+        mymap = {}
+        
         for i in range(len(nums)):
-            comp = target - nums[i] #creates a complement of the element
-            if comp in num_indices: #python syntax for if the map contains comp
-                return[i, num_indices[comp]]#no need for an array just return
-            else: #if not seen before
-                num_indices[nums[i]] = i # add it to the map
-                    
-                
+            comp = target - nums[i]
+            if comp in mymap:
+                return [mymap[comp],i]
+            else:
+                mymap[nums[i]] = i
+            
