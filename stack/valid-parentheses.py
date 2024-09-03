@@ -6,6 +6,8 @@ class Solution:
             if char in "([{":
                 stack.append(char)
             else:
+                if not stack:
+                    return False
                 top = stack.pop()
 
                 if char == ')' and top != '(' or char == ']' and top != '[' or char == '}' and top != '{':
