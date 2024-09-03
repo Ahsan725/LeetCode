@@ -1,7 +1,8 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         # Initialize two pointers, left and right, to the start and end of the array
-        left, right = 0, len(nums) - 1
+        left = 0
+        right = len(nums) - 1
         
         # While the search space is valid (left pointer is not greater than right)
         while left < right:
