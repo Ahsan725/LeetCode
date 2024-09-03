@@ -12,6 +12,6 @@ class Solution:
 
                 if char == ')' and top != '(' or char == ']' and top != '[' or char == '}' and top != '{':
                     return False      
-        return not stack
+        return len(stack) == 0
 
 
