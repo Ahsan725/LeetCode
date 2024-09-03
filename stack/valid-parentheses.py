@@ -8,7 +8,7 @@ class Solution:
                 if not stack: #if we have never encontered an opening bracket which would mean it could never be valid
                     return False #so we return false immediately
                 top = stack.pop() #if we have seen an opening bracket, pop it which basically means examine it 
-                if (char == ')' and top != '(') or \ 
+                if (char == ')' and top != '(') or \
                    (char == '}' and top != '{') or \
                    (char == ']' and top != '['): #if the character is opening & it NOT matches with its kind of closing
                     return False #return false
