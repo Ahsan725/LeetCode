@@ -18,7 +18,7 @@ class Solution:
             c = s[r]
             window[c] = 1 + window.get(c,0)
 
-            if c in counT and window[c] == counT[c]:
+            if c in countT and window[c] == countT[c]:
                 have +=1
 
 
