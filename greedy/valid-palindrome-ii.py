@@ -1,9 +1,10 @@
 class Solution(object):
     def validPalindrome(self, s):
         def verify(s, left, right, counter=0):
+            n = 1
             while left < right:
                 if s[left] != s[right]:
-                    if counter == 1:
+                    if counter == n:
                         return False
                     else:
                         return verify(s, left+1, right, counter+1) or verify(s, left, right-1, counter+1)
