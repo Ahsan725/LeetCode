@@ -7,7 +7,7 @@ class Solution:
             if abbr[abbr_ptr].isdigit():
                 steps = 0
 
-                if abbr[abbr_ptr] == 0: #FIRST element we have encountered
+                if abbr[abbr_ptr] == 0 and steps == 0: #FIRST element we have encountered
                     return False
                 
                 while abbr_ptr < len(abbr) and abbr[abbr_ptr].isdigit():
