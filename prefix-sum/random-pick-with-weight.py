@@ -25,7 +25,7 @@ class Solution:
         #         r = mid
 
 
-        return bisect_left(self.prefix_sums, target)
+        return bisect_right(self.prefix_sums, target)
         
 
 
