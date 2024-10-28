@@ -16,16 +16,17 @@ class Solution:
         l = 0
         r = len(self.prefix_sums)
 
-        # while l < r:
-        #     mid = (l + r) // 2
+        while l < r:
+            mid = (l + r) // 2
 
-        #     if self.prefix_sums[mid] < target:
-        #         l = mid + 1
-        #     else:
-        #         r = mid
+            if self.prefix_sums[mid] < target:
+                l = mid + 1
+            else:
+                r = mid
+        return l
 
 
-        return bisect_right(self.prefix_sums, target)
+        # return bisect_left(self.prefix_sums, target)
         
 
 
