@@ -52,10 +52,9 @@ class Solution:
         depth = 1
         res = 0
         queue = deque(nestedList)
-        #[1,1,2,1,1]
 
         while queue:
-            for i in range(len(queue)):
+            for i in range(len(queue)): #this calculates how many items are there at the begining of each depth in the Q
                 cur = queue.popleft()
                 if cur.isInteger():
                     res += depth * cur.getInteger() 
