@@ -4,6 +4,9 @@ class Solution:
         queue = deque([(0,0,1)])
         directions = [(0,0),(0,1),(0,-1),(1,0),(1,1),(1,-1),(-1,-1),(-1,0),]
         n = len(grid)
+
+        if grid[0][0] or grid[-1][-1]:
+            return -1
         
         while queue:
             x, y, d = queue.popleft()
