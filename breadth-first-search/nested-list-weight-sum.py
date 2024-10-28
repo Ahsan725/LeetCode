@@ -55,10 +55,10 @@ class Solution:
         #[1,1,2,1,1]
 
         while queue:
-            for i in queue:
+            for i in range(len(queue)):
                 cur = queue.popleft()
                 if cur.isInteger():
-                    res += depth * cur 
+                    res += depth * cur.getInteger() 
                 else:
                     queue.extend(cur.getList())
                     depth += 1
