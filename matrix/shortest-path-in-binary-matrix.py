@@ -19,6 +19,6 @@ class Solution:
             for x, y in directions:
                 if 0 <= x < n and 0<= y <n and not grid[x][y]:
                     grid[x][y] = 1
-                    q.append(x,y, d+1)
+                    q.append((x,y, d+1))
         return -1
         
