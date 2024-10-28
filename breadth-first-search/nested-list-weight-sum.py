@@ -49,17 +49,30 @@ class Solution:
         #     [1,1]
         # ]
 
-        depth = 1
-        res = 0
-        queue = deque(nestedList)
-        #[1,1,2,1,1]
+        # depth = 1
+        # res = 0
+        # queue = deque(nestedList)
+        # #[1,1,2,1,1]
 
-        while queue:
-            for i in range(len(queue)):
-                cur = queue.popleft()
-                if cur.isInteger():
-                    res += depth * cur.getInteger() 
+        # while queue:
+        #     for i in range(len(queue)):
+        #         cur = queue.popleft()
+        #         if cur.isInteger():
+        #             res += depth * cur.getInteger() 
+        #         else:
+        #             queue.extend(cur.getList())
+        #     depth += 1
+        # return res 
+        #DFS approach below:
+
+        def dfs(nestedList, depth):
+            res = 0
+            for element in nestedList:
+                if element.isInteger():
+                    res += depth * element.getInteger()
                 else:
-                    queue.extend(cur.getList())
-            depth += 1
-        return res 
+                    res += dfs(element.getList(), depth + 1)
+                return res 
+        return dfs(nestedList, 1)
+
+            
