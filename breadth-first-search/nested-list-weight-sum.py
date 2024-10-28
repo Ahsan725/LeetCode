@@ -61,5 +61,5 @@ class Solution:
                     res += depth * cur.getInteger() 
                 else:
                     queue.extend(cur.getList())
-                    depth += 1
+            depth += 1
         return res 
