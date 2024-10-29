@@ -1,6 +1,11 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
+        if k > 500:
+            nums.sort()
+            return nums[-k]
+
         k = len(nums) - k
+        
         def quickselect(l,r):
             
             pivot = nums[r]
