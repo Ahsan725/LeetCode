@@ -14,9 +14,10 @@ class Solution:
 
         while queue:
             x, node = queue.popleft()
-            columns[x].append(node.val)
-            min_x = min(min_x, x)
-            max_x = max(max_x, x)
+            if node:
+                columns[x].append(node.val)
+                min_x = min(min_x, x)
+                max_x = max(max_x, x)
 
             if node.left:
                 queue.append((x - 1, node.left))
