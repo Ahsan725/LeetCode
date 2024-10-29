@@ -19,10 +19,10 @@ class Solution:
                 min_x = min(min_x, x)
                 max_x = max(max_x, x)
 
-            if node.left:
-                queue.append((x - 1, node.left))
-            if node.right:
-                queue.append((x + 1, node.right))
+                if node.left:
+                    queue.append((x - 1, node.left))
+                if node.right:
+                    queue.append((x + 1, node.right))
 
         for level in range(min_x, max_x + 1):
             res.append(columns[level])
