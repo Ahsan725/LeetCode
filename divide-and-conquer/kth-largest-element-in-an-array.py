@@ -1,8 +1,8 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        if k > 500:
-            nums.sort()
-            return nums[-k]
+        # if k > 500: #for super large ks since in the worst case the algo below will be N^2 but N in average case. 
+        #     nums.sort()
+        #     return nums[-k]
 
         k = len(nums) - k
         
