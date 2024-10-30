@@ -1,14 +1,19 @@
+from typing import List
+
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
+        # Initialize left and right pointers
+        l = 0
+        r = len(nums) - 1
 
-        if len(nums) == 1:
-            return 0
-        if len(nums) == 2:
-            if nums[0] > nums[1]:
-                return 0
+        while l < r:  # Continue until left meets right
+            m = (l + r) // 2  # Find the middle index
+            
+            # Compare middle element with the right neighbor
+            if nums[m] < nums[m + 1]:  
+                l = m + 1  # Move right if the right neighbor is greater
             else:
-                return 1
-        
-        for i in range(1,len(nums)-1):
-            if nums[i] > nums[i+1] and nums[i] > nums[i-1]:
-                return i
+                r = m  # Move left otherwise
+
+        # At the end of the loop, l == r, which points to a peak element
+        return l  # Return the index of the peak
