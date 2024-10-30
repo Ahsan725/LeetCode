@@ -23,7 +23,7 @@ class Solution:
             
         if index_2 >= 0:
             nums1[res_index] = nums2[index_2]
-            res -= 1
+            res_index -= 1
             index_2 -= 1
 
 
