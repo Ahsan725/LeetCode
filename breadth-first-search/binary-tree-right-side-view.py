@@ -12,7 +12,11 @@ class Solution:
 
         while root:
             res.append(root.val)
-            root = root.right
+            if root.right:
+                root = root.right
+            else:
+                root = root.left
+
 
         return res
         
