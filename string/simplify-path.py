@@ -12,5 +12,5 @@ class Solution:
             else:
                 stack.append(directory)
         
-        final_str = "/" + "/".join(stack)
+        final_str = "/" + "/".join(stack) #this is sooo useful
         return final_str
