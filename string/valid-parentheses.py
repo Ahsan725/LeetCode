@@ -15,6 +15,9 @@ class Solution:
 
         stack = []
 
+        if len(s) <=1:
+            return False
+
         for char in s:
             if char in "({[":
                 stack.append(char)
