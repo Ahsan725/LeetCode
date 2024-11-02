@@ -15,7 +15,7 @@ class Solution:
 
         stack = []
 
-        if len(s) <=1:
+        if len(s) <=1 or len(s) % 2 != 0:
             return False
 
         for char in s:
