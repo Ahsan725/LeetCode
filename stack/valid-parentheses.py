@@ -14,22 +14,15 @@ class Solution:
         #else False
 
         stack = []
-
-        if len(s) <=1 or len(s) % 2 != 0:
-            return False
+        close_to_open = {")":"(", "}":"{", "]":"["}
 
         for char in s:
-            if char in "({[":
+            if char in close_to_open:
+                if stack and stack[-1] == close_to_open[char]:
+                    stack.pop()
+                else:
+                    return False
+            else:
                 stack.append(char)
-            if char in ")]}" and stack:
-                if char == ')' and stack[-1] == "(":
-                    stack.pop()
-                if char == '}' and stack[-1] == "{":
-                    stack.pop()
-                if char == ']' and stack[-1] == "[":
-                    stack.pop()
         
-        if not stack:
-            return True
-        else:
-            return False
+        return True if not stack else False 
