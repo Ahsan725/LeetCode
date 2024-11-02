@@ -18,7 +18,7 @@ class Solution:
         for char in s:
             if char in "({[":
                 stack.append(char)
-            if char in ")]}":
+            if char in ")]}" and stack:
                 if char == ')' and stack[-1] == "(":
                     stack.pop()
                 if char == '}' and stack[-1] == "{":
