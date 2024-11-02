@@ -25,9 +25,10 @@ class RandomizedSet:
         res = val in self.nummap
         if res:
             index = self.nummap[val]
-            last_element = self.numlist.pop()
+            last_element = self.numlist[-1]
             self.numlist[index] = last_element
             self.nummap[last_element] = index
+            self.numlist.pop()
             del self.nummap[val]
         
         return res
