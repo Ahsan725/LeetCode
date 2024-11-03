@@ -18,8 +18,9 @@ class Solution:
             else:
                 if word[word_ptr] != abbr[abbr_ptr]:
                     return False 
-                word_ptr += 1
-                abbr_ptr += 1
+                else:
+                    word_ptr += 1
+                    abbr_ptr += 1
             
         return word_ptr == len(word) and abbr_ptr == len(abbr)
 
