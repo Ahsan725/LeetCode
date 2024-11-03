@@ -19,7 +19,7 @@ class Solution:
         #     else:
         #         result.append(c)
         # return "".join(result[::-1])
-        #below is the stack solution
+        #below is the stack solution which will be eaasier to talk about 
         stack = []
         to_remove = set()
 
