@@ -8,10 +8,8 @@ class Solution:
                 if s[left] != s[right]:
                     # If there’s a mismatch and counter < k, try to remove either `s[left]` or `s[right]`
                     mismatch += 1
-                    if mismatch < 3:
-                        return verify(s, left + 1, right, counter + 1) or verify(s, left, right - 1, counter + 1)
-                    else:
-                        return False  # If counter reaches k, no more removals allowed
+                    if mismatch > 3:
+                        return False # If counter reaches k, no more removals allowed
                 else:
                     left += 1
                     right -= 1
