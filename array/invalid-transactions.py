@@ -33,6 +33,6 @@ class Solution:
             name_to_info[name] = {"time" : mins, "city" : city, "amount" : amount}
             full_info[name] = trans # value is the whole string of transaction
 
-        return invalid
+        return list(invalid)
 
 
