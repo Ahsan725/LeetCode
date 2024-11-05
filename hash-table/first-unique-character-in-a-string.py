@@ -11,14 +11,19 @@ class Solution:
 
 
         for char, freq in freq_map.items():
-            #check if the frequency is 1
-            if char in char_to_index and freq == 1:
-                index = char_to_index[char] #get the index 
-                res.append(index) #index
+            if freq == 1:
+                return s.index(char)
+
+
+        # for char, freq in freq_map.items():
+        #     #check if the frequency is 1
+        #     if char in char_to_index and freq == 1:
+        #         index = char_to_index[char] #get the index 
+        #         res.append(index) #index
             
 
-            #return the first one that was added to the map
-        if len(res) > 0:
-            return res[0]
-        else:
-            return -1
+        #     #return the first one that was added to the map
+        # if len(res) > 0:
+        #     return res[0]
+        # else:
+        return -1
