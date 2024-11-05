@@ -23,8 +23,9 @@ class Solution:
                 prev_time = name_to_info[name]["time"]
                 prev_city = name_to_info[name]["city"]
                 if abs(prev_time - mins) < 60 and prev_city != city and amount < 1000:
-                    invalid.append(trans)
-                    invalid.append(full_info[name])
+                    if trans and full_info[name] not in invalid:
+                        invalid.append(trans)
+                        invalid.append(full_info[name]) 
                 elif abs(prev_time - mins) < 60 and prev_city == city and amount < 1000:
                     if trans and full_info[name] not in invalid:
                         invalid.append(trans)
