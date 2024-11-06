@@ -13,7 +13,7 @@ class Solution:
         transaction_map = defaultdict(list)
         
         # Set to store invalid transactions
-        invalid_transactions = set()
+        invalid_transactions = []
 
         # Step 1: Populate the dictionaries with transaction details
         for trans in transactions:
@@ -29,7 +29,7 @@ class Solution:
 
             # Case 1: If the amount exceeds $1000, add it directly to the invalid set
             if amount > 1000:
-                invalid_transactions.add(trans)
+                invalid_transactions.append(trans)
 
         # Step 2: Check for transactions within 60 minutes in different cities
         for name in transaction_map:
@@ -45,8 +45,8 @@ class Solution:
 
                     # If transactions are within 60 minutes and in different cities, both are invalid
                     if abs(time_i - time_j) <= 60 and city_i != city_j:
-                        invalid_transactions.add(trans_i)
-                        invalid_transactions.add(trans_j)
+                        invalid_transactions.append(trans_i)
+                        invalid_transactions.append(trans_j)
 
         # Step 3: Convert the invalid set to a list and return it
         return list(invalid_transactions)
