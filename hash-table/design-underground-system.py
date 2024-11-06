@@ -2,7 +2,7 @@ class UndergroundSystem:
 
     def __init__(self):
         self.id_to_startinfo = {} #id -> (startstation, starttime)
-        self.route_to_info = {} # (startstation, endstation) -> [time, total]
+        self.route_to_info = {} # (startstation, endstation) -> [count, total]
         
 
     def checkIn(self, id: int, stationName: str, t: int) -> None:
@@ -19,10 +19,10 @@ class UndergroundSystem:
         
 
     def getAverageTime(self, startStation: str, endStation: str) -> float:
-        time = self.route_to_info[(startStation, endStation)][0]
+        count = self.route_to_info[(startStation, endStation)][0]
         total = self.route_to_info[(startStation, endStation)][1]
 
-        return (total / time)
+        return (total / count)
         
 
 
