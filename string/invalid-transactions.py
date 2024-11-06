@@ -1,38 +1,52 @@
+from typing import List
+from collections import defaultdict
+
 class Solution:
     def invalidTransactions(self, transactions: List[str]) -> List[str]:
-        #the amount exceeds $1000, or;
-        #if it occurs within (and including) 60 minutes of another transaction with the same name in a different city.
+        # Dictionary to store times of transactions for each name
+        name_to_time = defaultdict(list)
+        
+        # Dictionary to store cities of transactions for each name
+        name_to_city = defaultdict(list)
+        
+        # Dictionary to map each transaction to its name and time for easy access
+        transaction_map = defaultdict(list)
+        
+        # Set to store invalid transactions
+        invalid_transactions = set()
 
-        name_to_info ={}
-        full_info = {}
-        invalid = set()
-
-        #we are really only concerned about name, time and different city
+        # Step 1: Populate the dictionaries with transaction details
         for trans in transactions:
-            fields = trans.split(",") #alice,20,800,mtv"
-            name = fields[0].lower()
-            mins = int(fields[1])
-            amount = int(fields[2])
-            city = fields[3].lower()
+            name, time, amount, city = trans.split(',')
+            time = int(time)
+            amount = int(amount)
+            city = city.lower()  # Convert city to lowercase for case-insensitive comparison
 
-            #over 1000 invalid
+            # Store the transaction details in each dictionary
+            name_to_time[name].append(time)
+            name_to_city[name].append(city)
+            transaction_map[name].append((time, city, trans))
+
+            # Case 1: If the amount exceeds $1000, add it directly to the invalid set
             if amount > 1000:
-                invalid.add(trans)
+                invalid_transactions.add(trans)
 
-            if name in name_to_info: #name is the same
-                prev_time = name_to_info[name]["time"]
-                prev_city = name_to_info[name]["city"]
-                if abs(prev_time - mins) < 60 and prev_city != city and amount < 1000:
-                    invalid.add(trans)
-                    invalid.add(full_info[name])
-                elif abs(prev_time - mins) < 60 and prev_city == city and amount < 1000:
-                    invalid.add(trans)
-                    invalid.add(full_info[name])
+        # Step 2: Check for transactions within 60 minutes in different cities
+        for name in transaction_map:
+            transactions = transaction_map[name]
 
+            # Compare each transaction for this name with others for 60-minute window in different cities
+            for i in range(len(transactions)):
+                time_i, city_i, trans_i = transactions[i]
 
-            name_to_info[name] = {"time" : mins, "city" : city, "amount" : amount}
-            full_info[name] = trans # value is the whole string of transaction
+                # Check transaction i against every other transaction j for the same name
+                for j in range(i + 1, len(transactions)):
+                    time_j, city_j, trans_j = transactions[j]
 
-        return list(invalid)
+                    # If transactions are within 60 minutes and in different cities, both are invalid
+                    if abs(time_i - time_j) <= 60 and city_i != city_j:
+                        invalid_transactions.add(trans_i)
+                        invalid_transactions.add(trans_j)
 
-
+        # Step 3: Convert the invalid set to a list and return it
+        return list(invalid_transactions)
