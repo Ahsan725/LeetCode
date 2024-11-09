@@ -9,7 +9,8 @@ class Solution:
         while(left <= right):
             if string[left] != string[right]:
                 return False
-            left += 1
-            right -= 1
+            else:
+                left += 1
+                right -= 1
         return True
         
