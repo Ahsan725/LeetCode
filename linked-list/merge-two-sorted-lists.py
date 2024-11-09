@@ -8,6 +8,8 @@ class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
         dummy = node = ListNode()
 
+        #you are not merging the list into an existing list rather creating a new result list
+
         while list1 and list2:
             if list1.val < list2.val:
                 node.next = list1
