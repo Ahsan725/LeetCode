@@ -5,7 +5,7 @@ class Solution:
         rotated = [0] * n
 
         for i in range(n):
-            rotated[(i + k) % n] = nums[i]
+            rotated[(i + k) % n] = nums[i] #to do left rotated you would just do i -k % n instead of +
         
         for i in range(n):
             nums[i] = rotated[i]
