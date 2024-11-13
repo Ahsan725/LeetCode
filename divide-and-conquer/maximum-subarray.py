@@ -7,6 +7,6 @@ class Solution:
             summ += nums[i]
             maxsum = max(maxsum, summ)
         
-            if not summ > 0:
+            if summ < 0:
                 summ = 0
         return maxsum
