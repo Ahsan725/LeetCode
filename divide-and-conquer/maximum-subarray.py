@@ -9,4 +9,4 @@ class Solution:
         
             if not summ > 0:
                 summ = 0
-        return maxsum if maxsum > 0 else []
+        return maxsum if maxsum > 0 else 0
