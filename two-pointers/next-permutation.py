@@ -3,27 +3,34 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        #if there is an array that can be made greater by changing the order of one of the numbers do that
-        #else add more numbers from the left side and see if now it is possible 
-        #if the number added from the left is also bigger like 5312
-        #take another one 
-        #once you fidn a smller number replace that with next bigger number #35312 -> 53312 -> 51233
-        #if not possible then just sort it
+        n = len(nums) # size of the array.
 
-        dup = nums
-        n = len(nums) # 3-1 -> 2
-
-        #[1,2,3] -> [1.3.2]
-
-        for i in range(n - 1, -1, -1):
-            #starting at the back of the array start comaparing elements 
+    # Step 1: Find the break point:
+        ind = -1 # break point
+        for i in range(n-2, -1, -1):
             if nums[i] < nums[i + 1]:
-                second = nums[i + 1]
-                first = nums[i]
-                nums[i] = second
-                nums[i + 1] = first
-        
+            # index i is the break point
+                ind = i
+                break
+
+        # If break point does not exist:
+            if ind == -1:
+        # reverse the whole array:
+                nums.reverse()
+            return nums
+
+    # Step 2: Find the next greater element
+    #         and swap it with arr[ind]:
+        for i in range(n - 1, ind, -1):
+            if nums[i] > nums[ind]:
+                nums[i], nums[ind] = nums[ind], nums[i]
+                break
+
+    # Step 3: reverse the right half:
+        nums[ind+1:] = reversed(nums[ind+1:])
+
+        return nums
+
 
 
 
