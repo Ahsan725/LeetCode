@@ -1,36 +1,28 @@
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        Modify nums in-place to the next lexicographical permutation.
+        If no next permutation exists, rearrange nums to the lowest order.
         """
-        n = len(nums) # size of the array.
-
-    # Step 1: Find the break point:
-        ind = -1 # break point
-        for i in range(n-2, -1, -1):
+        n = len(nums)
+        
+        # Step 1: Find the break point (the first number from the end that is smaller than its next number).
+        ind = -1
+        for i in range(n - 2, -1, -1):
             if nums[i] < nums[i + 1]:
-            # index i is the break point
                 ind = i
                 break
-
-        # If break point does not exist:
-            if ind == -1:
-        # reverse the whole array:
-                nums.reverse()
-            return nums
-
-    # Step 2: Find the next greater element
-    #         and swap it with arr[ind]:
+        
+        # Step 2: If no break point exists, reverse the whole array to get the lowest permutation.
+        if ind == -1:
+            nums.reverse()
+            return
+        
+        # Step 3: Find the next greater element from the end to swap with nums[ind].
         for i in range(n - 1, ind, -1):
             if nums[i] > nums[ind]:
                 nums[i], nums[ind] = nums[ind], nums[i]
                 break
-
-    # Step 3: reverse the right half:
-        nums[ind+1:] = reversed(nums[ind+1:])
-
-        return nums
-
-
-
-
+        
+        # Step 4: Reverse the subarray to the right of the break point to get the next permutation.
+        nums[ind + 1:] = reversed(nums[ind + 1:])
