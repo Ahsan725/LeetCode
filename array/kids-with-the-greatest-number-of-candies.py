@@ -9,5 +9,4 @@ class Solution:
                 res.append(True)
             else:
                 res.append(False)
-
         return res
