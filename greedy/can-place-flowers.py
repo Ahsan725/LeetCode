@@ -12,7 +12,7 @@ class Solution:
                         flowerbed[i] = 1
                         res.append(True)
                 
-                if i == len(flowerbed) - 3:
+                elif i == len(flowerbed) - 3:
                     if flowerbed[i+1] == 0 and flowerbed[i+2] == 0:
                         flowerbed[i+2] = 1
                         res.append(True)
