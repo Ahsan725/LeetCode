@@ -1,22 +1,21 @@
+from collections import Counter
+
 class Solution:
     def equalFrequency(self, word: str) -> bool:
-        # Count the frequency of each character
-        freq = Counter(word)
+        track = Counter(word)
         
-        # Iterate through each character in the word
-        for char in freq:
-            # Decrease the frequency of the current character by 1
-            freq[char] -= 1
-            # If the frequency becomes 0, remove the character from the dictionary
-            if freq[char] == 0:
-                del freq[char]
+        # Iterate over a list of the keys to avoid modifying the dictionary during iteration
+        for key in list(track.keys()):
+            track[key] -= 1
+            #if frequency become zero , delete element (to handle edge case)
+            if track[key] == 0:
+                del track[key]
             
-            # Check if all remaining frequencies are equal
-            unique_freq = set(freq.values())
-            if len(unique_freq) == 1:
+            # Check if all remaining frequencies are the same
+            if len(set(track.values())) == 1:
                 return True
-            
-            # Restore the frequency of the current character
-            freq[char] += 1
+
+            # Restore the count for the next iteration
+            track[key] += 1
         
         return False
