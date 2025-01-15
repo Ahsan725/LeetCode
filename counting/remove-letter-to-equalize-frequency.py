@@ -24,6 +24,9 @@ class Solution:
         
         for key, value in freq.items():
             if value == starting and char_deleted == 0:
-                return False
+                if value == 1:
+                    return True
+                else:
+                    return False
         
         return True 
