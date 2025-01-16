@@ -9,7 +9,7 @@ class Solution:
                 return
             
             backtrack(nums[i])
-            create_subset(i+1)
+            backtrack(i+1)
 
             subset.pop()
             backtrack(i+1)
