@@ -3,16 +3,16 @@ class Solution:
         res = []
         subset = []
 
-        def backtrack(i):
+        def create_subset(i):
             if i == len(nums):
                 res.append(subset[:])
                 return
             
-            backtrack(nums[i])
-            backtrack(i+1)
+            subset.append(nums[i])
+            create_subset(i+1)
 
             subset.pop()
-            backtrack(i+1)
+            create_subset(i+1)
 
-        backtrack(0)
+        create_subset(0)
         return res
