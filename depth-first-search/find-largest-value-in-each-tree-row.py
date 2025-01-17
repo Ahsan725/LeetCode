@@ -11,9 +11,10 @@ class Solution:
 
         res = []
         q = deque([root])   
-        row_max = q[0].val
+
 
         while q:
+            row_max = q[0].val
             for _ in range(len(q)):
                 node = q.popleft()
                 row_max = max(row_max, node.val)
