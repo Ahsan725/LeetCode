@@ -3,7 +3,7 @@ class Solution:
         res = 0 #this is what we will use to count the number of palins 
         uniq = set(s) #create a set of characters in s 
 
-        for c in s: 
+        for c in uniq: 
             start = s.find(c)
             end = s.rfind(c)
 
