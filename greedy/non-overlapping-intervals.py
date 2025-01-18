@@ -1,9 +1,8 @@
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         #sort the intervals using the start time 
-        # sorted_intervals = sorted(intervals, key=lambda x: (x[0], x[1]))
 
-        intervals.sort()
+        intervals.sort() #nlogn -> sorting 
         res = 0
         prev_end_time = intervals[0][1]
 
@@ -15,4 +14,5 @@ class Solution:
                 prev_end_time = min(prev_end_time, end)
         
         return res 
-
+#time -> nlogn because nlogn for sorting and n for the rest 
+#space -> O(1)
