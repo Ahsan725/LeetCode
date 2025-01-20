@@ -3,6 +3,11 @@ class Solution:
         #two edge cases
         n = len(nums)
 
+        if n == 1:
+            return nums[0]
+        if n == 2:
+            return max(nums[0], nums[1])
+
         prev = nums[0]
         curr = max(nums[0], nums[1])
 
