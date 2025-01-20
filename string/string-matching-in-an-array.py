@@ -9,6 +9,5 @@ class Solution:
                 if i != j:
                     if words[i] in words[j]:
                         res.add(words[i])
-  # No need to check other words once a match is found
         
         return list(res)
