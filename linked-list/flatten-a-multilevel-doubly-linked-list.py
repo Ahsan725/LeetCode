@@ -26,5 +26,5 @@ class Solution:
             temp.prev = cur
             temp.child = None
             cur = temp
-        # dummy.next.prev = None
-        return cur.next
+        dummy.next.prev = None
+        return dummy.next
