@@ -4,5 +4,4 @@ class Solution:
         for i in range(len(words)):
             if words[i].startswith(pref):
                 res += 1
-        
         return res
