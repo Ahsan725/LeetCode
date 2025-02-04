@@ -1,6 +1,8 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         #def binary searech
+        #this solution treats the 2d matrix as a 1d list. it picks the middle index. This index is then converted into the cordinate of the 2d matrix
+        #this is done using division by cols because what is in 2d matrix that is not present in a 1d list -> cols. 
 
         rows = len(matrix)
         cols = len(matrix[0])
