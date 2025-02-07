@@ -1,21 +1,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        '''
-        This might be a better approach in an interview because it has less code and less chances to
-        mess up. However, two pointer technique is something that will come in handy in many situations
-        Sol 1 = O(n^3)
-        Sol 2 = O(n^2) + O(n log n) -> O(n^2)
-        '''
-        # ans=set()
-        # nums.sort()
-        # n=len(nums)
-        # for i in range(n-2):
-        #     for j in range(i+1,n-1):
-        #         for k in range(j+1,n):
-        #             temp=nums[i]+nums[j]+nums[k]
-        #             if temp==0:
-        #                 ans.add((nums[i],nums[j],nums[k]))
-        # return ans
+
 
         res = [] # since we have to return an list of list
         nums.sort() #this is super imp. We want to sort it so our two pointer solution can work 
