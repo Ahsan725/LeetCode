@@ -1,14 +1,19 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        complement_map = {}
-        result = []
-        for i in range(len(numbers)):
-            comp = target - numbers[i]
-            if comp in complement_map:
-                # Found complement, return indices
-                result.append(complement_map[comp])
-                result.append(i + 1)
-                return result
+        res = []
+
+        l, r = 0, len(numbers) - 1
+
+        while l < r:
+            total = numbers[l] + numbers[r]
+            if total > target:
+                #too big reduce r 
+                r -= 1
+            elif total < target:
+                #too small increase l
+                l += 1
             else:
-                # Store the current number's index
-                complement_map[numbers[i]] = i + 1
+                res.append(l+1)
+                res.append(r+1)
+                return res
+        return res
