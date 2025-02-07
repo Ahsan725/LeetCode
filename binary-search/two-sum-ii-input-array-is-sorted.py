@@ -15,5 +15,5 @@ class Solution:
             else:
                 res.append(l+1)
                 res.append(r+1)
-                return res
+                break
         return res
