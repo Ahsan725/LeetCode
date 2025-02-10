@@ -14,9 +14,9 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 current = q.popleft()
-                if current.left:
+                if current and current.left:
                     q.append(current.left)
-                if current.right:
+                if current and current.right:
                     q.append(current.right)
             level += 1
 
