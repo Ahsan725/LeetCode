@@ -14,7 +14,7 @@ class Solution:
          
         if sameTree(s,t):
             return True
-        return (self.isSubTree(s.left, t) or (self.isSubTree(s.right, t))     
+        return (self.isSubTree(s.left, t) or self.isSubTree(s.right, t))     
 
         def sameTree(s,t):
         if not s and not t:
