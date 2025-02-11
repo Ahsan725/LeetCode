@@ -17,7 +17,7 @@ class Solution:
                 cur = cur.left
 
             #where the current root is smaller than both p and q value -> search the right 
-            elif cur.val < p.val and cur.val and q.val:
+            elif cur.val < p.val and cur.val < q.val:
                 cur = cur.right
             #return the current because split happening 
             else:
