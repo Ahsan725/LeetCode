@@ -9,7 +9,7 @@ class Solution:
             return True
         return (self.isSubtree(s.left, t) or self.isSubtree(s.right, t))  
 
-    def sameTree(self, s: Optional[TreeNode], t: Optional[TreeNode]) -> bool:
+    def sameTree(self, s, t):
         if not s and not t:
             return True
         if not s or not t:
