@@ -12,7 +12,8 @@ class Solution:
         #basically we are copying the linkedlist in a way that all the connections translate over to the new linked list
         #has two pointers next and random 
         #iterate over each node and get two values
-       
+        if not head: return None
+        
         oldtonew = {None : None}
 
         cur = head
