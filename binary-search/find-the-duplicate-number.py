@@ -1,7 +1,9 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         #we can not use extra space 
-        #can not modify -> no sorting 
+        #can not modify -> no sorting
+        #one of those problems you would have to have seen before It is using floyds algorithm. 
+        #Hard to prove why or how it works  
 
         fast = 0 
         slow = 0
