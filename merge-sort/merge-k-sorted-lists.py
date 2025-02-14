@@ -8,7 +8,7 @@ class Solution:
         
         #heap 
         heap = []
-        
+        #this only loads the heads of the lists on the heap so we can look at one item at a time from all(k) lists
         for i, node in enumerate(lists):
             if node:
                 heapq.heappush(heap, (node.val, i, node))
@@ -21,9 +21,9 @@ class Solution:
             cur.next = node
             cur = node
             node = node.next
-            
+            #I had a confusion here the i is not the index of the next node rather the index of the list in the main
+            #list e.g list#1, list#2 and so on which is why you do not need to update the i when pushing
             if node:
                 heapq.heappush(heap, (node.val, i, node))
-            
         return dummy.next
         
