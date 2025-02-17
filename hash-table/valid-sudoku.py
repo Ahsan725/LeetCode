@@ -5,12 +5,12 @@ class Solution:
             return len(block) != len(set(block))
         # Check all rows
         for i in range(9):
-            row = []
+            seen = set()
             for j in range(9):
-                if board[i][j] != '.':
-                    row.append(board[i][j])
-            if has_duplicates(row):
-                return False
+                if board[i][j] in seen:
+                    return False
+                elif board[i][j] != '.':
+                    seen.add(board[i][j])
 
         # Check all columns
         for i in range(9):
