@@ -5,11 +5,11 @@ class Solution:
             return len(block) != len(set(block))
         # Check all rows
         for i in range(9):
-            seen = set()
+            seen = set() #create a set for O(1) lookups
             for j in range(9):
-                if board[i][j] in seen:
+                if board[i][j] in seen: #if it has been seen before means invalid
                     return False
-                elif board[i][j] != '.':
+                elif board[i][j] != '.': #if it is a new number and also not a blank cell add it to seen
                     seen.add(board[i][j])
 
         # Check all columns
