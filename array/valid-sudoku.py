@@ -14,12 +14,12 @@ class Solution:
 
         # Check all columns
         for i in range(9):
-            column = []
+            seen = set()
             for j in range(9):
-                if board[j][i] != '.':
-                    column.append(board[j][i])
-            if has_duplicates(column):
-                return False
+                if board[j][i] in seen: #just flip i,j to j,i
+                    return False
+                elif board[j][i] != '.':
+                    seen.add(board[j][i])
 
         # Check all 3x3 sub-grids
         for i in range(0, 9, 3):
