@@ -4,19 +4,19 @@ class MinStack:
         self.stack = []
         self.min_elm = float('inf')
 
-    def push(self, val: int) -> None:
+    def push(self, val: int) -> None: #O(n)
         self.stack.append(val)
-        self.min_elm = min(self.min_elm, val)
+        self.min_elm = min(self.stack)
 
-    def pop(self) -> None:
+    def pop(self) -> None: #O(n)
         self.stack.pop()
         if self.stack:
             self.min_elm = min(self.stack)
 
-    def top(self) -> int:
+    def top(self) -> int: #O(1)
         return self.stack[-1]
 
-    def getMin(self) -> int:
+    def getMin(self) -> int: #O(1)
         return self.min_elm
         
 
