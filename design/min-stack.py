@@ -1,5 +1,5 @@
 class MinStack:
-
+    #can also be done using a double stack same time and space
     def __init__(self):
         self.stack = []
 
