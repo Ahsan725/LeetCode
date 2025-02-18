@@ -5,10 +5,9 @@ class Solution:
         r = len(numbers) -1
         
         while l < r:
-            if numbers[l] + numbers[r] > target:
-                #nums too big decreas r 
-                r -= 1
+            if numbers[l] + numbers[r] > target: 
+                r -= 1 #nums too big decreas r
             elif numbers[l] + numbers[r] < target:
-                l += 1
+                l += 1 #nums too small decreas r
             else:
                 return [l+1, r+1]
