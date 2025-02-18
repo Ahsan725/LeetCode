@@ -19,6 +19,5 @@ class Solution:
                 r -= 1
                 rightmax = max(rightmax, height[r])
                 res += rightmax - height[r]
-            
         return res 
                 
