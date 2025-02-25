@@ -4,6 +4,8 @@ class Solution:
         # Dictionary to memoize calculated power values
         power_cache = {}
 
+        ## O(Nlogn + N^(exp)*log(hi))
+
         # Helper function to compute the power value of a number
         def calculate_power(num: int) -> int:
             # Base case: The power of 1 is 0
@@ -28,7 +30,7 @@ class Solution:
         number_power_pairs = [(num, calculate_power(num)) for num in range(low, high + 1)]
 
         # Sort the pairs by power value, and by number if power values are equal
-        number_power_pairs.sort(key=lambda pair: (pair[1], pair[0]))
+        number_power_pairs.sort(key=lambda pair: (pair[1]))
 
         # Return the k-th number in the sorted list (1-based index, so k - 1)
         return number_power_pairs[k - 1][0]
