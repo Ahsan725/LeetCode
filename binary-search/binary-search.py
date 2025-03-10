@@ -4,7 +4,7 @@ class Solution:
         l = 0
         r = len(nums) -1 
 
-        while l < r: #l =0, r = 5
+        while l <= r: #l =0, r = 5
             m = (l + r) // 2 # 0 + 5 = 5 //2-> 2 + 1 = 3
             if target == nums[m]: #5 == 9?
                 return m
