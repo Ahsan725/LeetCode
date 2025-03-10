@@ -5,7 +5,7 @@ class Solution:
         stack = []
         
         for token in tokens:
-            if token in "+-*/"]:
+            if token in "+-*/":
                 second = stack.pop()
                 first = stack.pop()
                 
