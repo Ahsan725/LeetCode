@@ -1,7 +1,7 @@
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         seen = set(nums)
-        max_num = len(nums)
+        max_num = len(nums) + 1
 
         res = []
 
