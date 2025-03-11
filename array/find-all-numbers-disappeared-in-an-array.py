@@ -5,7 +5,7 @@ class Solution:
 
         res = []
 
-        for i in range(max_num):
+        for i in range(1, max_num):
             if i not in seen:
                 res.append(i)
         return res
