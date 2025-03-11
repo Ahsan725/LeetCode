@@ -5,8 +5,7 @@ class Solution:
         for char in s:
             if char.isalpha():
                 stack.append(char)
-            else:
-                if stack:
+            elif stack:
                     stack.pop() 
         
         return "".join(stack)
