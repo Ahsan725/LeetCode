@@ -8,8 +8,5 @@ class Solution:
             else:
                 if stack:
                     stack.pop() 
-        stk = []
-        if stack:
-            stk = list(stack)
         
-        return "".join(stk)
+        return "".join(stack)
