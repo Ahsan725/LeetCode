@@ -9,8 +9,6 @@ class Solution:
         for char in s:
             if char in vows:
                 found.append(char)
-        # found = found[::-1]
-
         for char in s:
             if char in vows:
                 res.append(found.pop())
