@@ -1,12 +1,20 @@
 class Solution:
-    def toGoatLatin(self, sentence: str) -> str:
-        sentence = sentence.split()
-
-        for i in range(len(sentence)):
-            if sentence[i][0] not in "aeiouAEIOU":
-                sentence[i] = sentence[i][1:] + sentence[i][0]
-                
-            sentence[i] += "ma"
-            sentence[i] += (i+1)*"a"
-
-        return ' '.join(sentence)
+    def toGoatLatin(self, s: str) -> str:
+  
+        vows = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        res = []
+        last_char = ''
+        
+        words = s.split() #"[Imaa, peaksmaaa,  Goat,  Latin]
+        
+        for i, word in enumerate(words):
+            if word[0] in vows:
+            #found a vowel
+                res.append(word + "ma" + "a"* (i+1) )
+            
+            elif word[0] not in vows:
+                last_char = word[0]
+                res.append(word[1:] + last_char + "ma" + "a" * (i+1))
+            
+        return " ".join(res)
+            
