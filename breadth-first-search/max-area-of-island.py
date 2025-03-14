@@ -1,5 +1,8 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        
+        #pretty much the same set up and algo as number of islands 
+
         seen = set()
         rows = len(grid)
         cols = len(grid[0])
