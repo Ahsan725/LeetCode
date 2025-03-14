@@ -5,7 +5,7 @@ class Solution:
         res = []
         last_char = ''
         
-        words = s.split() #"[Imaa, peaksmaaa,  Goat,  Latin]
+        words = s.split() 
         
         for i, word in enumerate(words):
             if word[0] in vows:
