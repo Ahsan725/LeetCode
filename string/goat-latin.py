@@ -3,7 +3,6 @@ class Solution:
   
         vows = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
         res = []
-        last_char = ''
         
         words = s.split() 
         
