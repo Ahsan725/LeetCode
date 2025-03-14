@@ -2,8 +2,6 @@ class Solution:
     def largeGroupPositions(self, s: str) -> List[List[int]]:
         l = 0
         r = 0
-        start = 0
-        end = 0
         res =[]
 
         while r < len(s):
