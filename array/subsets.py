@@ -3,7 +3,7 @@ class Solution:
         res = []
         subset = []
 
-        def create_subset(i):
+        def create_subset(i): #this is. dfs algo
             if i == len(nums):
                 res.append(subset[:])
                 return
