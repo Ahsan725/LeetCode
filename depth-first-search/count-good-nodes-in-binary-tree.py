@@ -17,7 +17,7 @@ class Solution:
             if node.val >= maxsofar:
                 res += 1
             if node.right:
-                q.append((q.right, max(maxsofar, node.val)))
+                q.append((node.right, max(maxsofar, node.val)))
             if node.left:
-                q.append((q.left, max(maxsofar, node.val)))
+                q.append((node.left, max(maxsofar, node.val)))
         return res 
