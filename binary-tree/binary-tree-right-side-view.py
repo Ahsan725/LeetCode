@@ -16,10 +16,10 @@ class Solution:
 
         q = deque([root])  # Initialize the queue with the root node
         while q:
-            level_size = len(q)
+            # level_size = len(q)
             level_nodes = []  # Store nodes in the current level
 
-            for i in range(level_size):
+            for i in range(len(q)):
                 node = q.popleft()
                 level_nodes.append(node.val) #add the node value to level_nodes
 
