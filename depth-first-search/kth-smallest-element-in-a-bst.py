@@ -7,7 +7,7 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         
-        #iterate over the entire bst
+        #iterate over the entire bst inorder DFS 
         stack = []
         count = 0
 
