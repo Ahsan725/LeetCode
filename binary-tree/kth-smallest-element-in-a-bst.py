@@ -10,6 +10,7 @@ class Solution:
         #iterate over the entire bst
         stack = []
         res = []
+        count = 0
 
         while stack or root:
             while root:
@@ -17,7 +18,8 @@ class Solution:
                 root = root.left
 
             root = stack.pop()
-            res.append(root.val)
+            count += 1
+            if count == k:
+                return root.val
 
             root = root.right
-        return res[k - 1]
