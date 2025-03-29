@@ -7,11 +7,14 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         def validate(node, low=float('-inf'), high=float('inf')):
-            if not node:
+            if not node: #base condition 1
                 return True
-            if not (low < node.val < high):
+            if not (low < node.val < high): #base condition 2
                 return False
-            return (validate(node.left, low, node.val) and
+                
+#if going left we do not know how small the value of the node will be so we use the low (-inf) but we know which value it NEEDS to be bigger than which is its parents right bount aka node.val. This is the same for the right node we dont the upper bound but we do know lower bound aka node.val 
+
+            return (validate(node.left, low, node.val) and 
                     validate(node.right, node.val, high))
         
         return validate(root)
