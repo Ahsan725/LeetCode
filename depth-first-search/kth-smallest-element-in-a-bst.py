@@ -8,18 +8,16 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         
         #iterate over the entire bst
-        q = [root]
-        values = []
+        stack = []
+        res = []
 
-        while q:
-            node = q.pop()
-            values.append(node.val)
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
 
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-        #values; [1,2,3,4,5,6] -> [1,2,3,4]
-        #Time: Nlogn #Space: n
-        values.sort()
-        return values[k - 1]
+            root = stack.pop()
+            res.append(root.val)
+
+            root = root.right
+        return res[k - 1]
