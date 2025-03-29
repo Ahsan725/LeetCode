@@ -17,6 +17,7 @@ class Solution:
         return validate(root)
 
 # class Solution:
+#bfs solution
 #     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
 #         q = deque([(root, float('-inf'), float('inf'))])
