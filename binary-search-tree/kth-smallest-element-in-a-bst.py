@@ -9,14 +9,12 @@ class Solution:
         
         #iterate over the entire bst
         stack = []
-        res = []
         count = 0
 
         while stack or root:
             while root:
                 stack.append(root)
                 root = root.left
-
             root = stack.pop()
             count += 1
             if count == k:
