@@ -8,11 +8,11 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         
         #iterate over the entire bst
-        q = deque([root])
+        q = [root]
         values = []
 
         while q:
-            node = q.popleft()
+            node = q.pop()
             values.append(node.val)
 
             if node.left:
@@ -20,5 +20,6 @@ class Solution:
             if node.right:
                 q.append(node.right)
         #values; [1,2,3,4,5,6] -> [1,2,3,4]
+        #Time: Nlogn #Space: n
         values.sort()
         return values[k - 1]
