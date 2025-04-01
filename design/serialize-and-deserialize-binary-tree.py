@@ -48,7 +48,7 @@ class Codec:
             return None
         
         #append the value
-        node = TreeNode(int(values[self.idx)]))
+        node = TreeNode(int(values[self.idx]))
         self.idx += 1
 
         #left sub tree
