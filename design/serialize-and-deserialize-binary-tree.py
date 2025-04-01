@@ -20,6 +20,7 @@ class Codec:
             #base case
             if not root:
                 res.append("#")
+                return
             
             #appending the value 
             res.append(str(root.val))
@@ -52,9 +53,9 @@ class Codec:
             self.idx += 1
 
         #left sub tree
-            build(node.left)
+            node.left = build()
         #right sub tree
-            build(node.right)
+            node.right = build()
         return node
 
     
