@@ -43,18 +43,18 @@ class Codec:
 
         def build(values):
         #base case
-        if values[self.idx] == "#":
-            self.idx += 1
-            return None
+            if values[self.idx] == "#":
+                self.idx += 1
+                return None
         
         #append the value
-        node = TreeNode(int(values[self.idx]))
-        self.idx += 1
+            node = TreeNode(int(values[self.idx]))
+            self.idx += 1
 
         #left sub tree
-        build(node.left)
+            build(node.left)
         #right sub tree
-        build(node.right)
+            build(node.right)
         return node
 
     
