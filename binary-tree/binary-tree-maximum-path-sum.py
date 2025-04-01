@@ -8,10 +8,9 @@
 class Solution:
     def maxPathSum(self, root: TreeNode) -> int:
         # We'll store the overall maximum path sum here
-        # self.globalMaxSum = float('-inf')
+        self.globalMaxSum = float('-inf')
         
         def maxPathSumHelper(node: TreeNode) -> int:
-            nonlocal globalMaxSum = float('-inf')
             if not node:
                 return 0
             
