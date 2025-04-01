@@ -56,7 +56,9 @@ class Codec:
             node.left = build()
         #right sub tree
             node.right = build()
-        return node
+            return node
+        return build()
+
 
     
 
