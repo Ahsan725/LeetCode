@@ -42,7 +42,7 @@ class Codec:
         values = data.split(",")
         self.idx = 0
 
-        def build(values):
+        def build():
         #base case
             if values[self.idx] == "#":
                 self.idx += 1
