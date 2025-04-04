@@ -7,7 +7,7 @@ class Solution:
         r = k - 1 
 
         while r < len(nums):
-            for i in range(l, r+1): #0,1
+            for i in range(l, r+1):
                 prevMax = max(prevMax, nums[i])
             res.append(prevMax)
             prevMax = float('-inf')
