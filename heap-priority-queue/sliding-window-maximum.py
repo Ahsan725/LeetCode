@@ -1,16 +1,20 @@
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         res = []
-        prevMax = float('-inf')
+        q = deque()
 
-        l = 0
-        r = k - 1 
+        for i in range(len(nums)):
 
-        while r < len(nums):
-            for i in range(l, r+1):
-                prevMax = max(prevMax, nums[i])
-            res.append(prevMax)
-            prevMax = float('-inf')
-            l += 1
-            r += 1
+            #only add to q in an increasing order
+            while q and nums[q[-1]] < nums[i]:
+                q.pop()
+            q.append(i)
+
+            #remove any out of bounds indices that are less than left ( i -k +1)
+            while q and q[0] < i - k + 1:
+                q.popleft()
+            #once we reach the k window size add to res 
+            if i >= k - 1:
+                res.append(nums[q[0]])
+
         return res  
