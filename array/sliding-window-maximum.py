@@ -7,8 +7,8 @@ class Solution:
 
             #only add to q in an increasing order
             while q and nums[q[-1]] < nums[i]:
-                q.pop()
-            q.append(i)
+                q.pop() #keep removing if the cur element is bigger than some prev elems
+            q.append(i) #append cur elm
 
             #remove any out of bounds indices that are less than left ( i -k +1)
             while q and q[0] < i - k + 1:
