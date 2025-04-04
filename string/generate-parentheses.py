@@ -23,5 +23,5 @@ class Solution:
                 addparen(strsofar + ')', numofopen, numofclose + 1)
 
         # Start with an empty string and zero open/close parentheses used
-        addparen('', 0, 0)
+        addparen('(', 1, 0)
         return self.res
