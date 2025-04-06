@@ -1,5 +1,3 @@
-from typing import List
-
 class SparseVector:
     def __init__(self, nums: List[int]):
         self.data = {i: num for i, num in enumerate(nums) if num != 0}
