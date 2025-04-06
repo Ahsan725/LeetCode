@@ -1,5 +1,6 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
+        #very similar to number of islands 
         path = set()
         rows = len(board)
         cols = len(board[0])
