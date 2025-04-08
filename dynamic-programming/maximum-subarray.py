@@ -1,13 +1,17 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        summ = 0
-        maxsum = float('-inf')
-        for i in range(len(nums)):
+        #subarray, cursum 
+        
+        #the idea is to not include negative prefix in the sum 
+        
+        maxsub = float('-inf')
+        cursum = 0
+        
+        for num in nums:
+            if cursum < 0:
+                cursum = 0
+            
+            cursum += num
 
-            summ += nums[i]
-            maxsum = max(maxsum, summ)
-        
-            if summ < 0:
-                summ = 0
-        
-        return maxsum
+            maxsub = max(maxsub, cursum)
+        return maxsub
