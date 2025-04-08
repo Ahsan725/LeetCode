@@ -1,29 +1,33 @@
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
-        # Step 1: Input validation to handle edge cases (e.g., empty matrix)
-        if not matrix:
-            return []
-
-        rows, cols = len(matrix), len(matrix[0])
-
-        # Step 2: Initialize two boolean arrays to track which rows and columns need to be zeroed
-        zero_row = [False] * rows
-        zero_col = [False] * cols
-
-        # Step 3: Iterate through the matrix to mark rows and columns that contain zero
-        for row in range(rows):
-            for col in range(cols):
-                if matrix[row][col] == 0:
-                    zero_row[row] = True  # Mark the entire row to be zeroed
-                    zero_col[col] = True  # Mark the entire column to be zeroed
-
-        # Step 4: Iterate through the matrix again to set the appropriate cells to zero
-        for row in range(rows):
-            for col in range(cols):
-                # If the row or column is marked, set the cell to zero
-                if zero_row[row] or zero_col[col]:
-                    matrix[row][col] = 0
-
-        # Why use lists?
-        # Lists can be more memory-efficient than sets for larger matrices,
-        # while still providing O(1) lookup time.
+        
+        #Declare variables
+        rows = len(matrix)
+        cols = len(matrix[0])
+        row_flag = col_flag = False
+        
+        #decide which rows and cols have to be marked 0
+        for r in range(rows):
+            for c in range(cols):
+                if matrix[r][c] == 0:
+                    
+                    if r == 0:
+                        row_flag = True
+                    if c == 0:
+                        col_flag = True
+                    if r != 0 and c != 0:
+                        matrix[0][c] = 0 #first row and current col index
+                        matrix[r][0] = 0 #current row index and first col
+        
+        #mark the zeroes in the matrix as long as they are not in first row or first col
+        for r in range(1, rows):
+            for c in range(1, cols):
+                if matrix[r][0] == 0 or matrix[0][c] == 0:
+                    matrix[r][c] = 0
+        
+        #mark the first rows and first cols 0 if applicable 
+        if row_flag:
+            matrix[0] = [0] * cols
+        if col_flag:
+            for r in range(rows):
+                matrix[r][0] = 0
