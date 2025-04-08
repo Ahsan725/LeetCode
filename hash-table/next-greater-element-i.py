@@ -14,15 +14,18 @@ class Solution:
         #res [3, -1]
 
         #iterate over num1
-        #Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
-        res = [] #[-1,3, -1]
+        #Input: nums1 = [4,1,2], nums2 = [4,2,6,0]
+        res = [] #[-1,]
 
         for num in nums1: #4
             index = nums2.index(num) #index of the cur element look for 4 in nums2 return 2
-            nxt_index = index + 1 #4
-            if nxt_index < len(nums2) and nums2[nxt_index] > num:
-                res.append(nums2[nxt_index])
-            else:
+            for i in range(index, len(nums2)):
+                flag = False
+                if nums2[i] > num:
+                    res.append(nums2[i])
+                    flag = True
+                    break
+            if not flag:
                 res.append(-1)
 
         return res 
