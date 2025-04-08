@@ -10,17 +10,32 @@ class Solution:
         #stack [ 8, 9]
         #res =[1, 2, 4, 5, 6, 7, 3, 8, 9]
 
-        res = []
-        if not root:
-            return res
-        stack = [root]
+        # res = []
+        # if not root:
+        #     return res
+        # stack = [root]
 
-        while stack:
-            curNode = stack.pop()
-            res.append(curNode.val)
+        # while stack:
+        #     curNode = stack.pop()
+        #     res.append(curNode.val)
 
-            if curNode.right:
-                stack.append(curNode.right)
-            if curNode.left:
-                stack.append(curNode.left)
-        return res 
+        #     if curNode.right:
+        #         stack.append(curNode.right)
+        #     if curNode.left:
+        #         stack.append(curNode.left)
+        # return res 
+
+        #recursive solution 
+
+        self.res = []
+
+        def dfs(root):
+            if not root:
+                return
+            self.res.append(root.val)
+
+            dfs(root.left)
+            dfs(root.right)
+
+        dfs(root)
+        return self.res 
