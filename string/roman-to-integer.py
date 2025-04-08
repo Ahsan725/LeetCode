@@ -8,10 +8,10 @@ class Solution:
 
         roman = {"M": 1000, "D":500, "C":100, "L":50, "X":10, "V":5, "I":1, "IV": 4, "XL":40, "CD":400, "CM":900, "IX":9, "XC":90}
         #MC -> M CM -> 900
-        res = 0 #58
+        res = 0 #
         i = 0
         while i < len(s):
-            mapping = s[i:2]
+            mapping = s[i:i+2] #
             if mapping in roman:
                 res += roman[mapping]
                 i += 2
