@@ -14,7 +14,7 @@ class Solution:
             mapping = s[i:2]
             if mapping in roman:
                 res += roman[mapping]
-                i + 2
+                i += 2
             else:
                 mapping = s[i]
                 res += roman[mapping]
