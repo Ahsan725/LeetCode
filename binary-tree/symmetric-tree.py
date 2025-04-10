@@ -11,19 +11,19 @@ class Solution:
         if not root:
             return True
         
-        queue = deque([root])
+        q = deque([root])
         
-        while queue:
-            level_size = len(queue)
+        while q:
+            level_size = len(q)
             level_vals = []
             
             # Collect the entire level
             for _ in range(level_size):
-                node = queue.popleft()
+                node = q.popleft()
                 if node:
                     level_vals.append(node.val)
-                    queue.append(node.left)
-                    queue.append(node.right)
+                    q.append(node.left)
+                    q.append(node.right)
                 else:
                     # Use a placeholder for None
                     level_vals.append(None)
