@@ -15,10 +15,10 @@ class Solution:
             j = half - m - 2  # Corresponding partition index in B
 
             # Get left and right elements from both arrays
-            aleft = A[m] if m >= 0 else float("-infinity")
-            aright = A[m + 1] if (m + 1) < len(A) else float("infinity")
-            bleft = B[j] if j >= 0 else float("-infinity")
-            bright = B[j + 1] if (j + 1) < len(B) else float("infinity")
+            aleft = A[m] if m >= 0 else float("-inf")
+            aright = A[m + 1] if (m + 1) < len(A) else float("inf")
+            bleft = B[j] if j >= 0 else float("-inf")
+            bright = B[j + 1] if (j + 1) < len(B) else float("inf")
 
             # Found correct partition
             if aleft <= bright and bleft <= aright:
