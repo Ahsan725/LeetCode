@@ -1,21 +1,18 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        seen = set()
-        ans = set()
+        if len(s) < 10:
+            return []
 
-        i = 0
-        while i < len(s):
-            starting_i = i
-            res = []
-            seq = ""
-            winsize = i + 10
-            while i < winsize and i <len(s):
-                res.append(s[i])
-                i += 1
-            seq = "".join(res)
-            if seq in seen:
-                ans.add(seq)
+        seen = set()
+        repeated = set()
+
+        # Slide a window of length 10 across the string
+        for i in range(len(s) - 9):
+            substring = s[i:i+10]
+
+            if substring in seen:
+                repeated.add(substring)
             else:
-                seen.add(seq)
-            i = starting_i + 1
-        return list(ans)     
+                seen.add(substring)
+
+        return list(repeated)
