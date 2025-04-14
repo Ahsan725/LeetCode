@@ -8,7 +8,7 @@ class Solution:
             start, end = intervals[i]
             prevstart = intervals[i-1][0] 
             prevend = intervals[i-1][1]
-            if start <= prevend:
+            if start < prevend:
                 overlaps += 1
             
 
