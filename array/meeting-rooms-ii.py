@@ -1,13 +1,12 @@
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        overlaps = 1
-        intervals.sort()
-
-        for i in range(1, len(intervals)):
-            #if the start is less than the end there is an overlap
-            start, end = intervals[i]
-            prevstart = intervals[i-1][0] 
-            prevend = intervals[i-1][1]
-            if start < prevend:
-                overlaps += 1
-        return overlaps
+    def minMeetingRooms(self, intervals):
+        endpoints = []
+        for start, end in intervals:
+            endpoints.append((start, 1))
+            endpoints.append((end, -1))
+        endpoints.sort()
+        res = need = 0
+        for _, delta in endpoints:
+            need += delta
+            res = max(res, need)
+        return res
