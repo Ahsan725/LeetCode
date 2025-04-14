@@ -10,7 +10,4 @@ class Solution:
             prevend = intervals[i-1][1]
             if start < prevend:
                 overlaps += 1
-            
-
-
         return overlaps
