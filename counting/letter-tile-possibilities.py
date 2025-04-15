@@ -5,7 +5,7 @@ class Solution:
         def backtrack():
             res = 0
             for c in count:
-                if count[c] >:
+                if count[c] > 0:
                     count[c] -= 1
                     res += 1
                     res += backtrack()
