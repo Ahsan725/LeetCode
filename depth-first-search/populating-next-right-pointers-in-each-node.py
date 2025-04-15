@@ -21,7 +21,7 @@ class Solution:
             for i in range(len(q)):
                 node = q.popleft()
 
-                if i < size - 1:
+                if i < len(q) - 1:
                     node.next = q[0]
                 
                 #appending the children
