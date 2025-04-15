@@ -18,7 +18,7 @@ class Solution:
 
         while q:
             size = len(q)
-            for i in range(len(q)):
+            for i in range(size):
                 node = q.popleft()
 
                 if i < size - 1:
