@@ -1,15 +1,14 @@
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
-        self.res = 0
         count = Counter(tiles)
 
         def backtrack():
             for c in count:
-                if count[c] > 0:
+                if count[c] >:
                     count[c] -= 1
-                    self.res += 1
-                    self.res += backtrack()
+                    res += 1
+                    res += backtrack()
                     count[c] += 1
-            return self.res 
+            return res 
 
         return backtrack()
