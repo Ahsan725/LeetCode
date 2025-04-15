@@ -17,11 +17,11 @@ class Solution:
         q = deque([root])
 
         while q:
-            size = len(q)
+            size = len(q) #we save this because len of q will change but we need a snapshot of size
             for i in range(size):
                 node = q.popleft()
-
-                if i < size - 1:
+ 
+                if i < size - 1: #this is why we needed the size and why len(q) would not work by itself.
                     node.next = q[0]
                 
                 #appending the children
