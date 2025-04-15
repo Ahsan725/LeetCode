@@ -3,6 +3,7 @@ class Solution:
         count = Counter(tiles)
 
         def backtrack():
+            res = 0
             for c in count:
                 if count[c] >:
                     count[c] -= 1
