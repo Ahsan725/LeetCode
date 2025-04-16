@@ -19,3 +19,6 @@ class Solution:
             #dfs on right: 6, 3, root = 2
         
         return dfs(root)
+
+        #Components of a DFS:
+        #
