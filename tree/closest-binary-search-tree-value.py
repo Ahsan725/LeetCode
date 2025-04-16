@@ -14,7 +14,7 @@ class Solution:
         while q:
                 node = q.popleft()
 
-                if abs(node.val - target) < abs(closest - target):
+                if abs(node.val - target) <= abs(closest - target):
                     closest = node.val
 
                 if target < node.val:
