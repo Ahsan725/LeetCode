@@ -3,8 +3,9 @@ class Solution:
         closest = root.val
 
         while root:
-            if abs(root.val - target) <= abs(closest - target):
-                closest = root.val
+            if abs(node.val - target) <= abs(closest - target):
+                closest = node.val
+
 
             if target < root.val:
                 root = root.left
