@@ -15,8 +15,8 @@ class Solution:
             for _ in range(len(q)):
                 node = q.popleft()
 
-            if abs(node.val - target) < abs(closest - target):
-                closest = node.val
+                if abs(node.val - target) < abs(closest - target):
+                    closest = node.val
 
                 if target < node.val:
                     #go left
