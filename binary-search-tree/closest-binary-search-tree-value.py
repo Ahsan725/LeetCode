@@ -1,31 +1,14 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        
-
-        q = deque([root])
         closest = root.val
 
-        while q:
-                node = q.popleft()
+        while root:
+            if abs(root.val - target) <= abs(closest - target):
+                closest = root.val
 
-                if abs(node.val - target) <= abs(closest - target):
-                    closest = node.val
+            if target < root.val:
+                root = root.left
+            else:
+                root = root.right
 
-                if target < node.val:
-                    #go left
-                    if node.left:
-                        q.append(node.left)
-                if target > node.val:
-                    #gi rught
-                    if node.right:
-                        q.append(node.right)
-        
         return closest
-
-            
