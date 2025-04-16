@@ -9,13 +9,14 @@ class Solution:
         
 
         q = deque([root])
+        closest = root.val
 
         while q:
             for _ in range(len(q)):
                 node = q.popleft()
 
-                if node.val + 1 == target or node.val - 1 == target:
-                    return node.val
+            if abs(node.val - target) < abs(closest - target):
+                closest = node.val
 
                 if target < node.val:
                     #go left
