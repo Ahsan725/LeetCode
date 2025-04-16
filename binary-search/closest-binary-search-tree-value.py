@@ -12,7 +12,7 @@ class Solution:
         closest = root.val
 
         while q:
-            for _ in range(len(q)):
+            while q
                 node = q.popleft()
 
                 if abs(node.val - target) < abs(closest - target):
