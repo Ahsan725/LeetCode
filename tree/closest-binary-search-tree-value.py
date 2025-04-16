@@ -12,20 +12,19 @@ class Solution:
         closest = root.val
 
         while q:
-            while q:
-                node = q.popleft()
+            node = q.popleft()
 
-                if abs(node.val - target) < abs(closest - target):
-                    closest = node.val
+            if abs(node.val - target) < abs(closest - target):
+                closest = node.val
 
-                if target < node.val:
-                    #go left
-                    if node.left:
-                        q.append(node.left)
-                if target > node.val:
-                    #gi rught
-                    if node.right:
-                        q.append(node.right)
+            if target < node.val:
+                #go left
+                if node.left:
+                    q.append(node.left)
+            if target > node.val:
+                #gi rught
+                if node.right:
+                    q.append(node.right)
         
         return closest
 
