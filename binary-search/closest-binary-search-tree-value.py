@@ -3,8 +3,8 @@ class Solution:
         closest = root.val
 
         while root:
-            if abs(node.val - target) <= abs(closest - target):
-                closest = node.val
+            if abs(root.val - target) <= abs(closest - target):
+                closest = root.val
 
 
             if target < root.val:
