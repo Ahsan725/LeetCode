@@ -3,6 +3,10 @@ import math
 
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        # total = sum(piles)
+        # k = total / h
+        # k = math.ceil(k)
+        # return k
         l = 1  # Minimum possible eating speed
         r = max(piles)  # Maximum possible eating speed
 
