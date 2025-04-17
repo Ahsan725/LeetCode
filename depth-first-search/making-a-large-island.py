@@ -1,6 +1,3 @@
-from collections import defaultdict
-from typing import List
-
 class Solution:
     def largestIsland(self, grid: List[List[int]]) -> int:
         N = len(grid)
