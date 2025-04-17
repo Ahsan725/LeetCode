@@ -2,7 +2,7 @@ class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         #bfs 
         res = []
-        col_map = deafultdict(list)
+        col_map = defaultdict(list)
         
         minx = float('inf')
         maxx = float('-inf')
