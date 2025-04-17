@@ -6,7 +6,7 @@ class Solution:
         
         minx = float('inf')
         maxx = float('-inf')
-        q = deque([0, root])
+        q = deque([(0, root)])
         
         while q:
             x, node = q.popleft()
