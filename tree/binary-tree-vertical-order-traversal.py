@@ -16,9 +16,9 @@ class Solution:
             maxx = max(maxx, x)
             
             if node.left:
-                q.append((x - 1, node))
+                q.append((x - 1, node.left))
             if node.right:
-                q.append((x + 1, node))
+                q.append((x + 1, node.right))
             
         for level in range(minx, maxx + 1):
             res.append(col_map[level])
