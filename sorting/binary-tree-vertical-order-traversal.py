@@ -1,6 +1,9 @@
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         #bfs 
+        if not root:
+            return []
+
         res = []
         col_map = defaultdict(list)
         
