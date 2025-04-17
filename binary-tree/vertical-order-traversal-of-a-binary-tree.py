@@ -16,7 +16,7 @@ class Solution:
         q = deque([(root, 0, 0)])
         while q:
             node, row, col =  q.popleft()
-            col_map[col].append(row, node.val)
+            col_map[col].append((row, node.val))
             
             min_col = min(min_col, col)
             max_col = max(max_col, col)
