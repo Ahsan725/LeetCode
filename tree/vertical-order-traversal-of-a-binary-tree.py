@@ -22,9 +22,9 @@ class Solution:
             max_col = max(max_col, col)
             
             if node.left:
-                q.append(node.left, row - 1, col - 1)
+                q.append((node.left, row - 1, col - 1))
             if node.right:
-                q.append(node.right, row + 1, col + 1)
+                q.append((node.right, row + 1, col + 1))
         
         for level in range(min_col, max_col + 1):
             items = col_map[level]
