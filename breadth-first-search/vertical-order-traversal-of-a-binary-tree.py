@@ -6,7 +6,8 @@
 #         self.right = right
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
-        
+        if not root:
+            return []
         col_map = defaultdict(list)
         min_col = float('inf')
         max_col = float('-inf')
