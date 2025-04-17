@@ -30,7 +30,7 @@ class Solution:
             items = col_map[level]
             items.sort()
             
-            res.append([val for _, val in items])
+            res.append([val for row, val in items])
         return res
                         
         
