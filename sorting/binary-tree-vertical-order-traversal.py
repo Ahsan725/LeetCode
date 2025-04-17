@@ -1,6 +1,13 @@
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        #bfs 
+        #idea of the algo is that root we consider (0,0) cordinate if we go left a col thats -1 if we go right + 1
+
+        """
+        Approach:
+        - Use BFS to traverse the tree while tracking horizontal distances (x-coordinates).
+        - Use a hashmap (col_map) to group node values by their column index.
+        - Keep track of min and max x to build the result in left-to-right column order.
+        """
         if not root:
             return []
 
