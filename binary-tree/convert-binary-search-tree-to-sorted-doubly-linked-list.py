@@ -18,8 +18,6 @@ class Solution:
         
         self.first = None
         self.last = None 
-        
-        self.inorder_link(root)
         def inorder_link(node):
             if node:
                 self.inorder_link(node.left)
@@ -34,6 +32,8 @@ class Solution:
                     self.last = node
                     
                 self.inorder_link(node.right)
+        self.inorder_link(root)
+        
         #not sure about which one is the left or right
         self.first.right = self.last
         self.last.left = self.first
