@@ -32,7 +32,7 @@ class Solution:
                     self.last = node
                     
                 self.inorder_link(node.right)
-        self.inorder_link(root)
+        inorder_link(root)
         
         #not sure about which one is the left or right
         self.first.right = self.last
