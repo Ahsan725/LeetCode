@@ -10,7 +10,7 @@ class Node:
 class Solution:
     def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
         
-        def inorder_link(self, node):
+        def inorder_link(node):
             if node:
                 self.inorder_link(node.left)
                 
