@@ -1,33 +1,42 @@
+from collections import defaultdict
+
 class Solution:
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
-        res = []
-        name_mail = defaultdict(set)
-        #we are returning a list of lists
-        #creating a hashmap -> name: emails
-        #we only need to check if the name matches if the name does not match then we dont do anything 
-        
-        #create a hashmap
+    def accountsMerge(self, accounts):
+        email_to_name = {}
+        merged_accounts = []
+
+        # This list will store sets of emails that have already been grouped
+        groups = []
+
         for acc in accounts:
-            tokens = acc.split(",")
-            name = tokens[0]
-            emails = tokens[1:]
+            name = acc[0]
+            emails = set(acc[1:])
+            matched_groups = []
+            
+            # Check existing groups for any email overlap
+            for i, group in enumerate(groups):
+                if emails & group:
+                    matched_groups.append(i)
 
-            #add to hashmap
-            if name in name_mail:
-                #name matches but now we check for if emails match
+            # If no group matches, create a new one
+            if not matched_groups:
+                groups.append(emails)
                 for email in emails:
-                    if email in name_mail[name]:
-                        #merge
-                        all_emails = set()
-                        all_emails.add(for email in emails) #add all the emails from this set of emals
-                        all_emails.add(name_mail[name] #also add emails from the previous set in the map
-                        res.append([(name, list(all_emails))])
-                    else:
-                        #do not merge
-                        continue
-
+                    email_to_name[email] = name
             else:
-                #not in the map before first time seeing it because if the name doesnt exist the email wont either
-                for email in emails:
-                    name_mail[name].add(email)
-        return res 
+                # Merge all matched groups with current emails
+                new_group = emails.copy()
+                for i in reversed(matched_groups):  # reverse to safely remove by index
+                    new_group |= groups[i]
+                    groups.pop(i)
+                groups.append(new_group)
+                for email in new_group:
+                    email_to_name[email] = name  # optional: last name seen wins
+
+        # Build final result
+        for group in groups:
+            sample_email = next(iter(group))
+            name = email_to_name[sample_email]
+            merged_accounts.append([name] + sorted(group))
+
+        return merged_accounts
