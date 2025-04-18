@@ -15,7 +15,8 @@ class Solution:
 
         self.first = None
         self.last = None 
-
+        
+        #linking helper function
         def inorder_link(node):
             if node:
                 inorder_link(node.left)
