@@ -20,7 +20,7 @@ class Solution:
         self.last = None 
         def inorder_link(node):
             if node:
-                self.inorder_link(node.left)
+                inorder_link(node.left)
                 
                 if self.last == None:
                     self.first = node
