@@ -16,14 +16,6 @@ class Solution:
         self.first = None
         self.last = None 
 
-        inorder_link(root)
-
-        # Make it circular
-        self.first.left = self.last
-        self.last.right = self.first
-
-        return self.first
-
         def inorder_link(node):
             if node:
                 inorder_link(node.left)
@@ -38,3 +30,11 @@ class Solution:
                     self.last = node
 
                 inorder_link(node.right)
+
+        inorder_link(root)
+
+        # Make it circular
+        self.first.left = self.last
+        self.last.right = self.first
+
+        return self.first
