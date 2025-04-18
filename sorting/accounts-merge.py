@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class Solution:
     def accountsMerge(self, accounts):
         email_graph = defaultdict(set)      # now using set
