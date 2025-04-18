@@ -24,7 +24,7 @@ class Solution:
 
         return self.first
 
-                def inorder_link(node):
+        def inorder_link(node):
             if node:
                 inorder_link(node.left)
 
