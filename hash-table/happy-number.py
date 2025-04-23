@@ -4,8 +4,6 @@ class Solution:
         ans = 0
         seen = set()
         temp = n
-        if n < 10 and n != 1:
-            return False 
         while ans != 1:
             ans = 0
             while temp:
