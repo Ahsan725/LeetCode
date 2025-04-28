@@ -6,6 +6,7 @@ class Solution:
         x = a & MASK
         y = b & MASK
 
+        #this is the actual code above was python specific int problems
         while y != 0:
             car = (x & y) << 1
             x = x ^ y
