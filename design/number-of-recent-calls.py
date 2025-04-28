@@ -11,6 +11,8 @@
 
 #         return len(self.reqs)
 
+
+#another solution. This runs in O(log n) better for interviews
 class RecentCounter:
     def __init__(self):
         # pings arrive in non-decreasing order, so the list is always sorted
