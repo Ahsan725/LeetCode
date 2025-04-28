@@ -8,6 +8,5 @@ class Solution:
             res = max(res, maxdiff * nums[k])
             maxdiff = max(maxdiff, prefixmax - nums[k])
             prefixmax = max(prefixmax, nums[k])
-
-            
+     
         return res
