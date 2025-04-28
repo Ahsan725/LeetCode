@@ -11,7 +11,7 @@ class Solution:
         for i, c in enumerate(s):
             size += 1 #size goes up to every letter to calculate the size of parts
             end = max(end, lastindex[c]) #maintains the farthest we have to go in 1 part
-            if i == end: #if current index is at 
-                res.append(size)
-                size = 0
+            if i == end: #if current index is at the farthest we had to go. 1 part done
+                res.append(size) #add to res the size of that part
+                size = 0 #reset size for the calcukation of the size of next part
         return res 
