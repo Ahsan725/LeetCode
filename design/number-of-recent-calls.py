@@ -1,20 +1,12 @@
 class RecentCounter:
-
     def __init__(self):
-        self.reqs = []
+        self.reqs = deque()
 
     def ping(self, t: int) -> int:
         self.reqs.append(t)
-        #calculate the range
-        end = t
-        start = t - 3000
-        count = 0
-        for num in self.reqs:
-            if num >= start and num <= end:
-                count += 1
-        return count
 
+        left_boundary = t - 3000
+        while self.reqs[0] < left_boundary:
+            self.reqs.popleft()     # O(1) each, amortised
 
-# Your RecentCounter object will be instantiated and called as such:
-# obj = RecentCounter()
-# param_1 = obj.ping(t)
+        return len(self.reqs)
