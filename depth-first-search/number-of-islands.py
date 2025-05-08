@@ -5,8 +5,6 @@ class Solution:
         cols = len(grid[0])
         res = 0
 
-        dirs = [(1,0), (0, 1), (-1, 0), (0, -1)]
-
 
         #dfs 
         def dfs(r, c):
@@ -14,6 +12,7 @@ class Solution:
                 return 
             grid[r][c] = '0'
 
+            dirs = [(1,0), (0, 1), (-1, 0), (0, -1)]
             for dr, dc in dirs:
                 dfs(r + dr, c + dc)
 
