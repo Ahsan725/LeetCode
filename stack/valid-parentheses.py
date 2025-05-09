@@ -14,7 +14,7 @@ class Solution:
                         stack.pop()
             else:
                 stack.append(c)
-        if stack:
+        if stack: #if stack has some elements that means we did not find enough openings 
             return False
         else:
             return True 
