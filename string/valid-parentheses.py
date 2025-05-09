@@ -3,6 +3,11 @@ class Solution:
         pairs = {")": "(", "}": "{", "]": "["}
         stack = []
 
+        #edge cases
+        #input too small
+        if len(s) < 2:
+            return False
+
         for c in s:
             if c in ")}]":
                 #we found a closing parenthesis 
