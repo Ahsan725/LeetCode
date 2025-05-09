@@ -10,10 +10,8 @@ class Solution:
 
         for c in s:
             if c in ")}]":
-                if not stack:
-                    return False
                 #we found a closing parenthesis 
-                if stack and pairs[c] != stack[-1]:
+                if not stack or pairs[c] != stack[-1]:
                     #we did not find correct matching
                     return False
                 else:
