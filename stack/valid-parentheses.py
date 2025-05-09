@@ -5,8 +5,8 @@ class Solution:
 
         #edge cases
         #input too small
-        if len(s) < 2:
-            return False
+        # if len(s) < 2:
+        #     return False
 
         for c in s:
             if c in ")}]":
