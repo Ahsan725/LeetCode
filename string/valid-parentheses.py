@@ -18,4 +18,7 @@ class Solution:
                     stack.pop()
             else:
                 stack.append(c)
-        return True 
+        if stack:
+            return False
+        else:
+            return True 
