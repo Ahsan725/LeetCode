@@ -11,7 +11,7 @@ class Solution:
         for c in s:
             if c in ")}]":
                 #we found a closing parenthesis 
-                if pairs[c] != stack[-1]:
+                if stack and pairs[c] != stack[-1]:
                     #we did not find correct matching
                     return False
                 else:
