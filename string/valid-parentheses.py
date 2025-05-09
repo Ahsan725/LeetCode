@@ -15,7 +15,8 @@ class Solution:
                     #we did not find correct matching
                     return False
                 else:
-                    stack.pop()
+                    if stack:
+                        stack.pop()
             else:
                 stack.append(c)
         if stack:
