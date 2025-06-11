@@ -15,7 +15,7 @@ class Solution:
             
             if c in ")}]":
                 if open_count > 0:
-                    if stack[-1] == paramap[c]:
+                    if stack and stack[-1] == paramap[c]:
                         stack.pop()
                 else:
                     return False
