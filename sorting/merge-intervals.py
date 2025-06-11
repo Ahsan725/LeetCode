@@ -1,15 +1,22 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        #first thing about interval based problems is seeing if sorting will help us figure our the solution 
-        res = []
-        intervals.sort() #no need to do the extra lambda because it does the first val by default 
+        
+        #sort the intervals 
+        intervals.sort()
         res = [intervals[0]]
         
         for start, end in intervals[1:]:
-            prevend = res[-1][1] #get the last entry and its end value 
+            prevend = res[-1][1]
+            prevstart = res[-1][0]
             
-            if start <= prevend:
-                res[-1][1] = max(prevend, end)
+            if start <= prevend: #(1,3), (2,6) -> (1, 6)
+                #overlap 
+                res[-1] = (prevstart, end)
+                
             else:
-                res.append([start, end])
+                #do something 
+                res.append((start, end))
+            
         return res 
+               
+        
