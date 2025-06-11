@@ -17,6 +17,8 @@ class Solution:
                 if open_count > 0:
                     if stack and stack[-1] == paramap[c]:
                         stack.pop()
+                    else:
+                        return False
                 else:
                     return False
         if stack:
