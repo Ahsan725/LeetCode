@@ -5,13 +5,6 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        #if l1 is empty or l2 is empty or carry 
-        #num1 = l1 if l1 else None 
-        #num2 = l2 if l2 else None
-        
-        #total = 
-        #243 
-        #564 = 708
         
         carry = 0 
         dummy = ListNode()
