@@ -13,11 +13,11 @@ class Solution:
                 #overlap
                 prevstart = min(prevstart, start)
                 end = max(end, prevend)
-                res[-1] = (prevstart, end)
+                res[-1] = [prevstart, end]
                 
             else:
                 #do something 
-                res.append((start, end))
+                res.append([start, end])
             
         return res 
                
