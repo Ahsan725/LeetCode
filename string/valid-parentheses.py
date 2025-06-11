@@ -1,20 +1,27 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        pairs = {")": "(", "}": "{", "]": "["}
+        #if it begisn with an open false
+        #if there is more opens than close or more close then open-> false
+        #count of open drops before count of close does -> false
         stack = []
-
+        paramap = {")": "(", "]": "[", "}": "{"}
+        open_count = 0
+        
         for c in s:
-            if c in ")}]":
-                #we found a closing parenthesis 
-                if not stack or pairs[c] != stack[-1]:
-                    #we did not find correct matching or found a closing paren before an opening 
-                    return False
-                else:
-                    if stack:
-                        stack.pop()
-            else:
+            if c in "({[":
+                #open para
                 stack.append(c)
-        if stack: #if stack has some elements that means we did not find enough openings 
+                open_count += 1 
+            
+            if c in ")}]":
+                if open_count > 0:
+                    if stack[-1] == paramap[c]:
+                        stack.pop()
+                else:
+                    return False
+        if stack:
             return False
         else:
-            return True 
+            return True
+                
+                
