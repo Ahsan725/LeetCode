@@ -1,20 +1,16 @@
+from typing import List
+
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        if not graph:
-            return []
+        result = []
+        target = len(graph) - 1  # The last node we want to reach
 
-        graphh = {}
-        for i, edges in enumerate(graph):
-            graphh[i] = edges
+        def dfs(path: List[int], node: int):
+            if node == target:
+                result.append(path[:])  # Found a path, make a copy and save it
+                return
+            for neighbor in graph[node]:
+                dfs(path + [neighbor], neighbor)  # Explore next step
 
-        #dfs
-        stack = [[0,0]]
-        while stack:
-            node, path = stack.pop()
-
-            if node == len(graph) -1:
-                res.append(path)
-            for nei in graphh[node]:
-                stack.append((nei, path + [nei]))
-
-        return res
+        dfs([0], 0)  # Start DFS from node 0
+        return result
