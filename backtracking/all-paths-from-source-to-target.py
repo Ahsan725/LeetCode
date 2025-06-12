@@ -12,7 +12,7 @@ class Solution:
         while stack:
             node, path = stack.pop()
 
-            if node == n -1:
+            if node == len(graph) -1:
                 res.append(path)
             for nei in graphh[node]:
                 stack.append((nei, path + [nei]))
