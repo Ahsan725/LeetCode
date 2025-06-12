@@ -7,7 +7,7 @@ class Solution:
 
         def dfs(path: List[int], node: int):
             if node == target:
-                result.append(copy(path))  # Found a path, make a copy and save it
+                result.append(path[:])  # Found a path, make a copy and save it
                 return
             for neighbor in graph[node]:
                 dfs(path + [neighbor], neighbor)  # Explore next step
