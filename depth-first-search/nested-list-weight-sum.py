@@ -43,24 +43,21 @@
 
 class Solution:
     def depthSum(self, nestedList: List[NestedInteger]) -> int:
-        # nested_list = [
-        #     [1,1],
-        #      2,
-        #     [1,1]
-        # ]
-
-        depth = 1
+        #add eveything to the q
+        q = deque(nestedList)
         res = 0
-        queue = deque(nestedList)
-
-        while queue:
-            for i in range(len(queue)): #this calculates how many items are there at the begining of each depth in the Q
-                cur = queue.popleft()
+        depth = 1
+        
+        while q:
+            n = len(q)
+            for _ in range(n):
+                cur = q.popleft()
                 if cur.isInteger():
-                    res += depth * cur.getInteger() 
+                    res += depth * cur.getInteger()
                 else:
-                    queue.extend(cur.getList())
+                    q.extend(cur.getList())
             depth += 1
-        return res 
+        return res
+        
 
             
