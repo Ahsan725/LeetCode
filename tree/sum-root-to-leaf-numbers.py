@@ -10,7 +10,7 @@ class Solution:
         
         def dfs(root, num):
             if not root:
-                return num
+                return 0
             num = (num * 10) + root.val
             #check if leave node
             if not root.left and not root.right:
