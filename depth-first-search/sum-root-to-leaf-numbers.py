@@ -9,6 +9,8 @@ class Solution:
         #base case 
         
         def dfs(root, num):
+            if not root:
+                return num
             num = (num * 10) + root.val
             #check if leave node
             if not root.left and not root.right:
