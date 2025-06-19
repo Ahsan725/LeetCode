@@ -10,9 +10,9 @@ class Solution:
             return []
         #dfs
         res = []
-        stack = [root]
+        stack = [(root, layer)]
         while stack:
-            cur = stack.pop()
+            cur, cur_layer = stack.pop()
 
             #check if leaf nodes
             if not cur.left and not cur.right:
