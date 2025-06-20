@@ -4,23 +4,23 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import defaultdict
+
 class Solution:
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
-        #dfs
-        res = []
-        stack = [(root, layer)]
-        while stack:
-            cur, cur_layer = stack.pop()
+        level_map = defaultdict(list)
 
-            #check if leaf nodes
-            if not cur.left and not cur.right:
-                res.append(cur.val)
+        def dfs(node):
+            if not node:
+                return -1
+            left = dfs(node.left)
+            right = dfs(node.right)
+            height = max(left, right) + 1
+            level_map[height].append(node.val)
+            return height
 
-            if cur.right:
-                stack.append(cur.right)
-            if cur.left:
-                stack.append(cur.left)
+        dfs(root)
+        
+        # Convert map to list of lists, ordered by level
+        return [level_map[level] for level in sorted(level_map)]
 
-        return res
