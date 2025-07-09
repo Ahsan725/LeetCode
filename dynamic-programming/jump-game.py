@@ -1,10 +1,11 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        dest = len(nums) -1 
-
-        for i in range(len(nums)-1, -1, -1):
-            if i + nums[i] >= dest:
-                dest = i
-        return True if dest == 0 else False
-
-        
+        gas = 0
+        for n in nums:
+            if gas < 0:
+                return False
+            elif n > gas:
+                gas = n
+            gas -= 1
+            
+        return True
