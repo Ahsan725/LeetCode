@@ -10,8 +10,8 @@ class Solution:
         
         if len(citations) == 1:
             return citations[-1]
-        # if len(citations) == 0:
-        #     return 0
+        if len(citations) == 0:
+            return 0
 
         cite_to_num_of_nums_equal_bigger = {}
         valid_keys =[]
