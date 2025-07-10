@@ -9,9 +9,9 @@ class Solution:
         #once you have this you need to return the number whose count - the number itself is smallest 
         
         if len(citations) == 1:
-            return 1
-        if len(citations) == 0:
-            return 0
+            return citations[-1]
+        # if len(citations) == 0:
+        #     return 0
 
         cite_to_num_of_nums_equal_bigger = {}
         valid_keys =[]
