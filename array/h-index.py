@@ -8,34 +8,22 @@ class Solution:
         #the number itself must be smaller than or equal to the counts otherwise not valid
         #once you have this you need to return the number whose count - the number itself is smallest 
         
-        # if len(citations) == 1 and citations[-1] == 0:
-        #     return 0
-        # if len(citations) == 1:
-        #     return 1
+        # key thing is: are there x number of paper with atleast x number of citations
+        #overall goal is to find the biggest x for which there is at least x many citations 
 
-        cite_to_num_of_nums_equal_bigger = {}
-        valid_keys =[]
-        smallest_abs = float('inf')
-        smallest_key = float('inf')
+        n = len(citations)
+        buckets = [0] * (n + 1)
 
         for c in citations:
-            #how many numbers are greater than c?
-            count = 0
-            for b in citations:
-                if b >= c:
-                    count += 1
-                cite_to_num_of_nums_equal_bigger[c] = count
+            buckets[min(c, n)] += 1
         
-        for key, value in cite_to_num_of_nums_equal_bigger.items():
-            if key <= value:
-                valid_keys.append(key)
-        for key in valid_keys:
-            abs_val = abs(key - cite_to_num_of_nums_equal_bigger[key])
-            if abs_val < smallest_abs:
-                smallest_abs = abs_val
-                smallest_key = key
+        count = buckets[-1]
+        num = (n)
+        while num > count:
+            count += buckets[num]
+            num -= 1
+        return num - 1
 
-        return smallest_key
             
 
 
