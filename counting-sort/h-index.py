@@ -26,7 +26,7 @@ class Solution:
         if num >= 0:
             return num
         else:
-            0
+            return 0
 
             
 
