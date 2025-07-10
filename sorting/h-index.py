@@ -17,15 +17,12 @@ class Solution:
         for c in citations:
             buckets[min(c, n)] += 1
         
-        count = buckets[-1]
-        num = (n)
-        while num > count:
-            count += buckets[num]
-            num -= 1
-        if num >= 0:
-            return num
-        else:
-            return 0
+        count = 0
+        for i in range(n, -1, -1): #start backwards
+            count += buckets[i]
+            if count >= i:
+                return i
+        return 0
 
             
 
