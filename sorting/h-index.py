@@ -22,7 +22,11 @@ class Solution:
         while num > count:
             count += buckets[num]
             num -= 1
-        return num - 1
+        num = num -1 
+        if num >= 0:
+            return num
+        else:
+            0
 
             
 
