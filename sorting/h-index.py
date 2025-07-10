@@ -8,6 +8,9 @@ class Solution:
         #the number itself must be smaller than or equal to the counts otherwise not valid
         #once you have this you need to return the number whose count - the number itself is smallest 
         
+        if len(citations) < 2:
+            return 1
+
         cite_to_num_of_nums_equal_bigger = {}
         valid_keys =[]
         smallest_abs = float('inf')
