@@ -18,10 +18,10 @@ class Solution:
             buckets[min(c, n)] += 1
         
         count = 0
-        for h in range(n, -1, -1): #start backwards
-            count += buckets[h]
-            if count >= h:
-                return h
+        for i in range(n, -1, -1): #start backwards
+            count += buckets[i]
+            if count >= i:
+                return i
         return 0
 
             
