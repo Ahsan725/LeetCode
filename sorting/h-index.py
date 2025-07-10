@@ -35,7 +35,7 @@ class Solution:
                 smallest_abs = abs_val
                 smallest_key = key
 
-        return cite_to_num_of_nums_equal_bigger[smallest_key]
+        return smallest_key
             
 
 
