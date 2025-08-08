@@ -1,36 +1,27 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-from collections import deque
-
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
         
+        #understanding: we are checking if the tree when split in half right down the middle if it is mirror image of its one side. 
+        #approach: use bfs using a q and go level by level collect all the values and then compare them against their reverse
+        
+        #base case
+        if not root:
+            return root
         q = deque([root])
         
         while q:
-            level_size = len(q)
+            level_len = len(q)
             level_vals = []
             
-            # Collect the entire level
-            for _ in range(level_size):
+            for _ in range(level_len):
                 node = q.popleft()
                 if node:
                     level_vals.append(node.val)
                     q.append(node.left)
                     q.append(node.right)
                 else:
-                    # Use a placeholder for None
                     level_vals.append(None)
-            
-            # Check if level_vals is symmetrical
-            if level_vals != level_vals[::-1]:
-                return False
-        
-        return True
 
+            if level_vals != level_vals[::-1]:
+                return False 
+        return True
