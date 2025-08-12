@@ -7,7 +7,7 @@ class Solution:
         def dfs(r,c):
             if r < 0 or c < 0 or r >= rows or c >= cols or board[r][c] == 'X' or r == rows -1 or c == cols -1:
                 return 
-            board[r][c] = 'X'
+            # board[r][c] = 'X'
             
             dfs(r + 1,c)
             dfs(r,c + 1)
