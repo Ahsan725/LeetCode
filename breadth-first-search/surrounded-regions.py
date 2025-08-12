@@ -5,7 +5,7 @@ class Solution:
         cols = len(board[0])
         
         def dfs(r,c):
-            if r < 0 or c < 0 or r >= rows or c >= cols or baord[r][c] == 'O' or r == rows -1 or c == cols -1:
+            if r < 0 or c < 0 or r >= rows or c >= cols or board[r][c] == 'O' or r == rows -1 or c == cols -1:
                 return 
             board[r][c] = 'X'
             
