@@ -23,7 +23,7 @@ class Solution:
 
         for r in range(rows):
             for c in range(cols):
-                if board[r][c] == "0":
+                if board[r][c] == "O":
                     dfs(r,c)
         
         for r in range(rows):
