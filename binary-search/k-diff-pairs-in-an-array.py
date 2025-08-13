@@ -1,14 +1,22 @@
+from collections import Counter
+
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
-        pairs = set()
+        if k < 0:
+            return 0
+        
+        freq = Counter(nums)
+        res = 0
 
-        for i in range(len(nums)):
-            for j in range(len(nums)):
-                if i != j and abs(nums[i] - nums[j]) == k:
-                    if (nums[i], nums[j]) in pairs or (nums[j], nums[i]) in pairs:
-                        continue
-                    else:
-                        pairs.add((nums[i], nums[j]))
-            print(pairs)
-
-        return len(pairs)
+        if k == 0:
+            # Count numbers with duplicates
+            for v in freq.values():
+                if v > 1:
+                    res += 1
+        else:
+            # Check if x + k exists for each unique x
+            for x in freq:
+                if x + k in freq:
+                    res += 1
+        
+        return res
