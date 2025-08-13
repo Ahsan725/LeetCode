@@ -6,11 +6,11 @@ class Solution:
         
         for x in range(31):
             if n in prod_map:
-                True
-            product = 3^x
+                return True
+            product = 3 ** x
             if product == n:
                 return True
-            prod_map[x] = product
+            prod_map[product] = x
         return False
         
             
