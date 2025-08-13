@@ -1,18 +1,7 @@
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
-        if n < 1:
+        if n <= 0:
             return False
-        prod_map = {}
-        
-        for x in range(31):
-            if n in prod_map:
-                return True
-            product = 3 ** x
-            if product == n:
-                return True
-            prod_map[product] = x
-        return False
-        
-            
-            
-        
+        while n % 3 == 0:
+            n //= 3
+        return n == 1
