@@ -9,9 +9,10 @@ class Solution:
         cur = dummy
         last_node = ListNode()
 
-        while cur and last_node:
+        while cur:
             if cur.val == last_node.val:
-                last_node.next = last_node.next.next
+                if last_node.next:
+                    last_node.next = last_node.next.next
                 cur = last_node
             
             last_node = cur
