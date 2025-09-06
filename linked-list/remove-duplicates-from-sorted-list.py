@@ -9,7 +9,7 @@ class Solution:
         cur = dummy
         last_node = ListNode()
 
-        while cur and last_node:
+        while cur and last_node.next:
             if cur.val == last_node.val:
                 last_node.next = last_node.next.next
                 cur = last_node
