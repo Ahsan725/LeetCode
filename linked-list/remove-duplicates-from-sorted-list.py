@@ -12,7 +12,6 @@ class Solution:
         while cur:
             if cur.val == last_node.val:
                 last_node.next = last_node.next.next
-                cur.next = None
                 cur = last_node
             
             last_node = cur
