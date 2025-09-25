@@ -34,7 +34,7 @@ class Solution:
                 while s[left] != new_char:
                     chars.remove(s[left])
                     left += 1
-                # chars.remove(s[left])
+                chars.remove(s[left])
                 left += 1
         return max_len
 
