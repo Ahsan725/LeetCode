@@ -5,7 +5,7 @@
 #         self.next = next
 
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         #why do we need a dummy? because I am creating a NEW sorted list and that means I will have to insert a new node
         dummy = ListNode()
         cur = dummy 
