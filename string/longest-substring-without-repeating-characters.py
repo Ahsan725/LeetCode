@@ -1,24 +1,56 @@
+'''
+Example 1:
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew" len = 1
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+'''
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        #understanding: we have to find substring of greatest length without repeating characters. They also have to be connected there can be no gaps
-        #Approach: create a window that moves along to the right until we see some char that is already present, then we start removing from the left until that char is no longer
-        #in the substring then we can add the new character and repeat the process. At every step maintain the max length of substring we ever found and return at the end
-        #we can use a set that we can modify to keep track of all the chars in the string since it will give us O(1) lookup and O(1) removal 
-        
-        
+        left = 0
+        right = 0
+        max_len = 0
         chars = set()
-        res = 0
-        #pointers to create the window
-        l = 0
+
+        while right < len(s):
+            new_char = s[right]
+            if new_char not in chars:
+                chars.add(new_char)                    
+                max_len = max(max_len, right - left + 1)  
+                right += 1
+            else:
+                while s[left] != new_char:
+                    chars.remove(s[left])
+                    left += 1
+                chars.remove(s[left])
+                left += 1
+        return max_len
+
+                    
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         
-        for r in range(len(s)):
-            #if we see a char already present
-            if s[r] in chars:
-                #it is which means we must remove from the left
-                while s[r] in chars:
-                    chars.remove(s[l])
-                    l += 1
-            #if we have only seen new elemnts so far
-            chars.add(s[r])
-            res = max(res, r - l + 1)
-        return res 
