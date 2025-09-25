@@ -6,19 +6,22 @@
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        #why do we need a dummy? because I am creating a NEW sorted list and that means I will have to insert a new node
         dummy = ListNode()
         cur = dummy 
         
-        while list1 and list2:
-            if list1.val < list2.val:
-                cur.next = list1
-                list1 = list1.next  # Move list1 forward
+        #I had l2.val before because I was trying to access the valye but I need the node not the valye
+        while l1 and l2:
+            if l1.val <= l2.val:
+                cur.next = l1
+                l1 = l1.next
             else:
-                cur.next = list2
-                list2 = list2.next  # Move list2 forward
-            cur = cur.next  # Move the merged list forward
-        
-        # Attach the remaining non-empty list
-        cur.next = list1 or list2    
+                cur.next = l2
+                l2 = l2.next
+            
+            #update the cur ptr
+            cur = cur.next
+            
+        cur.next = l1 or l2
         
         return dummy.next
