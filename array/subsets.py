@@ -1,18 +1,13 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = []
-        res_set = set()
-        res.append([])
-        res.append(nums)
-
+        res = [[]] # Start with the empty set
+        
         for num in nums:
-            res.append([num])
-
-        for i in range(0, len(nums) - 1):
-            for j in range(1, len(nums)):
-                if nums[i] != nums[j]:
-                    temp = []
-                    temp = [nums[i], nums[j]]
-                    res.append(temp)
-
+            # For every existing subset, create a new one by adding 'num'
+            # We use list(res) or res[:] to iterate over a copy so we can 
+            # safely modify 'res' during the loop.
+            for subset in list(res):
+                new_subset = subset + [num]
+                res.append(new_subset)
+                
         return res
