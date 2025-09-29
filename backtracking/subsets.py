@@ -1,18 +1,18 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
-        subset = []
+        res_set = set()
+        res.append([])
+        res.append(nums)
 
-        def create_subset(i): #this is. dfs algo
-            if i == len(nums):
-                res.append(subset[:])
-                return
-            
-            subset.append(nums[i])
-            create_subset(i+1)
+        for num in nums:
+            res.append([num])
 
-            subset.pop()
-            create_subset(i+1)
+        for i in range(0, len(nums) - 1):
+            for j in range(1, len(nums)):
+                if nums[i] != nums[j]:
+                    temp = []
+                    temp = [nums[i], nums[j]]
+                    res.append(temp)
 
-        create_subset(0)
         return res
