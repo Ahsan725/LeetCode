@@ -1,20 +1,19 @@
 class Solution:
+class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        # # sorted_nums = sorted(nums) -> this one returns a new sorted list 
-        # nums.sort() # -> this one sorts the same list 
-        # return nums[(len(nums)//2)] 
-
-
-        candidate = 0
-        count = 0
-        for i in range(len(nums)):
-            if count == 0:
-                candidate = nums[i]
-                count +=1 # if you want to remove this you will 
-                        #have to change elif to just if
-            elif nums[i] == candidate:
-                count += 1
-            else:
-                count -= 1
         
-        return candidate
+        #hashmap 
+        freq = {}
+        max_freq = float('-inf')
+        max_num = 0
+        
+        for num in nums:
+            freq[num] = freq.get(num, 0) + 1
+            
+        #return the highest freq
+        for num, value in freq.items():
+            if value > max_freq:
+                max_freq = value
+                max_num = num
+                
+        return max_num
