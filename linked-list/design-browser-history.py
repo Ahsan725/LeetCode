@@ -19,7 +19,7 @@ class BrowserHistory:
         return self.stack[self.i]
         
     def forward(self, steps: int) -> str:
-        self.i = min(len(self.stack) - 1, self.i + steps)
+        self.i = min(self.len - 1, self.i + steps)
         return self.stack[self.i]
 
 # Your BrowserHistory object will be instantiated and called as such:
