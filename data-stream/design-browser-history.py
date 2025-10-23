@@ -3,12 +3,16 @@ class BrowserHistory:
     def __init__(self, homepage: str):
         self.stack = [homepage]
         self.i = 0
+        self.len = 1
 
     def visit(self, url: str) -> None:
-        # Remove forward history and add new URL
-        self.stack = self.stack[:self.i + 1]
-        self.stack.append(url)
-        self.i += 1
+        #do we have enough indices ti add
+        if len(self.stack) < self.i + 2:
+            self.stack.append(url)
+        else:
+            self.stack[self.i + 1] = url
+        self.i += 1 #increment the index
+        self.len = self.i + 1 #increment the len variable 
 
     def back(self, steps: int) -> str:
         self.i = max(0, self.i - steps)
