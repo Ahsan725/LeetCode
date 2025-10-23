@@ -18,8 +18,6 @@ class MagicDictionary:
                     i += 1
                 if count == 1:
                     return True
-                else:
-                    return False
         return False
 
 # Your MagicDictionary object will be instantiated and called as such:
