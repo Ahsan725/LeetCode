@@ -40,19 +40,19 @@ class Solution:
                 count1 -= 1
                 count2 -= 1
             
-            #step 2
-            count1, count2 = 0, 0
+        #step 2
+        count1, count2 = 0, 0
 
-            for num in nums:
-                if num == cand1:
-                    count1 += 1
-                elif num == cand2:
-                    count2 += 1
-            #step 3:
-            if count1 > n/3:
-                res.append(cand1)
-            if count2 > n/2:
-                res.append(cand2)
+        for num in nums:
+            if num == cand1:
+                count1 += 1
+            elif num == cand2:
+                count2 += 1
+        #step 3:
+        if count1 > n/3:
+            res.append(cand1)
+        if count2 > n/3:
+            res.append(cand2)
 
         return res
 
